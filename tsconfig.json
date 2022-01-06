@@ -1,0 +1,30 @@
+{
+  "extends": "./node_modules/@modyqyw/fabric/tsconfig.base.json",
+  "compilerOptions": {
+    "noUnusedParameters": false,
+    "baseUrl": "./",
+    "jsx": "preserve",
+    "paths": {},
+    "types": ["type-fest"],
+    "target": "ESNext"
+  },
+  "include": [
+    "./**/.*.js",
+    "./**/.*.cjs",
+    "./**/.*.mjs",
+    "./**/*.js",
+    "./**/*.cjs",
+    "./**/*.mjs",
+    "./**/*.jsx",
+    "./**/.*.ts",
+    "./**/.*.cts",
+    "./**/.*.mts",
+    "./**/*.ts",
+    "./**/*.cts",
+    "./**/*.mts",
+    "./**/*.tsx",
+    "./**/*.vue",
+    "./**/*.svelte"
+  ],
+  "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
+}
