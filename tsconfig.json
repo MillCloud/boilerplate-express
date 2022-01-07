@@ -4,7 +4,9 @@
     "noUnusedParameters": false,
     "baseUrl": "./",
     "jsx": "preserve",
-    "paths": {},
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "types": ["type-fest"],
     "target": "ESNext"
   },
