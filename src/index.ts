@@ -3,6 +3,10 @@ import spdy from 'spdy';
 import pico from 'picocolors';
 import fs from 'fs';
 import path from 'path';
+import { addAsync } from '@awaitjs/express';
+import pkg from '@/../package.json';
+import { logger } from '@/utils';
+import { contextMiddleware, tracerMiddleware, loggerMiddleware } from './middlewares';
 
 // specified port
 const PORT = 3000;
@@ -11,9 +15,13 @@ const PORT = 3000;
 // be careful
 const HTTPS = Boolean(JSON.parse(process.env.HTTPS ?? 'false')) || false;
 
-const app = express();
+const app = addAsync(express());
 
-app.get('/', (request, response) => {
+app.use(contextMiddleware);
+app.use(tracerMiddleware);
+app.use(loggerMiddleware);
+
+app.getAsync('/', async (request, response) => {
   response.send('Hello Express! This is a GET response.');
 });
 
@@ -27,8 +35,16 @@ const server = HTTPS
     )
   : app;
 
-server.listen(PORT, () => {
-  console.log(
-    pico.cyan(`\nExpress is listening at ${HTTPS ? 'https' : 'http'}://localhost:${PORT}.\n`),
+// @ts-ignore
+server.listen(PORT, (error) => {
+  if (error) {
+    logger.error(error?.message ?? error);
+    // eslint-disable-next-line unicorn/no-process-exit
+    process.exit(1);
+  }
+  logger.info(
+    pico.cyan(
+      `${pkg.name}@${pkg.version} is listening at ${HTTPS ? 'https' : 'http'}://localhost:${PORT}.`,
+    ),
   );
 });
