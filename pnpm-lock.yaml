@@ -4,11 +4,12 @@ specifiers:
   '@awaitjs/express': ~0.9.0
   '@babel/core': ~7.16.7
   '@babel/eslint-parser': ~7.16.5
-  '@commitlint/cli': ~16.0.1
+  '@commitlint/cli': ~16.0.2
   '@modyqyw/fabric': ~4.7.3
   '@modyqyw/utils': ~2.1.2
   '@types/body-parser': ~1.19.2
   '@types/compression': ~1.7.2
+  '@types/connect': ~3.4.35
   '@types/cors': ~2.8.12
   '@types/csurf': ~1.11.2
   '@types/errorhandler': ~1.5.0
@@ -29,6 +30,7 @@ specifiers:
   cls-rtracer: ~2.6.0
   commitizen: ~4.2.4
   compression: ~1.7.4
+  connect: ~3.7.0
   cors: ~2.8.5
   cross-env: ~7.0.3
   csurf: ~1.11.0
@@ -44,7 +46,7 @@ specifiers:
   helmet: ~5.0.1
   husky: ~7.0.4
   is-ci: ~3.0.1
-  lint-staged: ~12.1.5
+  lint-staged: ~12.1.7
   markdownlint-cli: ~0.30.0
   method-override: ~3.0.0
   mime-types: ~2.1.34
@@ -62,13 +64,13 @@ specifiers:
   query-string: ~7.1.0
   response-time: ~2.3.2
   serve-static: ~1.14.2
-  shelljs: ~0.8.4
+  shelljs: ~0.8.5
   spdy: ~4.0.2
   static-expiry: ~0.0.11
   supertest: ~6.1.6
   timeout: ~0.2.1
   ts-node: ~10.4.0
-  type-fest: ~2.8.0
+  type-fest: ~2.9.0
   typescript: ~4.5.4
 
 dependencies:
@@ -77,6 +79,7 @@ dependencies:
   body-parser: 1.19.1
   cls-rtracer: 2.6.0
   compression: 1.7.4
+  connect: 3.7.0
   cors: 2.8.5
   csurf: 1.11.0
   dayjs: 1.10.7
@@ -101,7 +104,7 @@ dependencies:
   query-string: 7.1.0
   response-time: 2.3.2
   serve-static: 1.14.2
-  shelljs: 0.8.4
+  shelljs: 0.8.5
   spdy: 4.0.2
   static-expiry: 0.0.11
   timeout: 0.2.1
@@ -109,10 +112,11 @@ dependencies:
 devDependencies:
   '@babel/core': 7.16.7
   '@babel/eslint-parser': 7.16.5_@babel+core@7.16.7+eslint@8.6.0
-  '@commitlint/cli': 16.0.1
+  '@commitlint/cli': 16.0.2
   '@modyqyw/fabric': 4.7.3_f3666674332495a8e5d5de892b78e086
   '@types/body-parser': 1.19.2
   '@types/compression': 1.7.2
+  '@types/connect': 3.4.35
   '@types/cors': 2.8.12
   '@types/csurf': 1.11.2
   '@types/errorhandler': 1.5.0
@@ -135,13 +139,13 @@ devDependencies:
   esno: 0.13.0_typescript@4.5.4
   husky: 7.0.4
   is-ci: 3.0.1
-  lint-staged: 12.1.5
+  lint-staged: 12.1.7
   markdownlint-cli: 0.30.0
   nodemon: 2.0.15
   prettier: 2.5.1
   supertest: 6.1.6
   ts-node: 10.4.0_typescript@4.5.4
-  type-fest: 2.8.0
+  type-fest: 2.9.0
   typescript: 4.5.4
 
 packages:
@@ -381,8 +385,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@commitlint/cli/16.0.1:
-    resolution: {integrity: sha512-61gGRy65WiVDRsqP0dAR2fAgE3qrTBW3fgz9MySv32y5Ib3ZXXDDq6bGyQqi2dSaPuDYzNCRwwlC7mmQM73T/g==}
+  /@commitlint/cli/16.0.2:
+    resolution: {integrity: sha512-Jt7iaBjoLGC5Nq4dHPTvTYnqPGkElFPBtTXTvBpTgatZApczyjI2plE0oG4GYWPp1suHIS/VdVDOMpPZjGVusg==}
     engines: {node: '>=v12'}
     hasBin: true
     dependencies:
@@ -669,7 +673,7 @@ packages:
       postcss-less: 5.0.0
       postcss-scss: 4.0.2_postcss@8.4.5
       prettier-plugin-svelte: 2.5.1_prettier@2.5.1
-      shelljs: 0.8.4
+      shelljs: 0.8.5
       stylelint-config-prettier: 9.0.3
       stylelint-config-recess-order: 3.0.0
       stylelint-config-standard: 24.0.0
@@ -1978,6 +1982,16 @@ packages:
   /confusing-browser-globals/1.0.11:
     resolution: {integrity: sha512-JsPKdmh8ZkmnHxDk55FZ1TqVLvEQTvoByJZRN9jzI0UjxK/QgAmsphz7PGtqgPieQZ/CQcHWXCR7ATDNhGe+YA==}
     dev: true
+
+  /connect/3.7.0:
+    resolution: {integrity: sha512-ZqRXc+tZukToSNmh5C2iWMSoV3X1YUcPbqEM4DkEG5tNQXrQUZCNVGGv3IuicnkMtPfGf3Xtp8WCXs295iQ1pQ==}
+    engines: {node: '>= 0.10.0'}
+    dependencies:
+      debug: 2.6.9
+      finalhandler: 1.1.2
+      parseurl: 1.3.3
+      utils-merge: 1.0.1
+    dev: false
 
   /constant-case/3.0.4:
     resolution: {integrity: sha512-I2hSBi7Vvs7BEuJDr5dDHfzb/Ruj3FyvFyh7KLilAjNQw3Be+xgqUBA2W6scVEcL0hL1dwPRtIqEPVUCKkSsyQ==}
@@ -4573,8 +4587,8 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
-  /lint-staged/12.1.5:
-    resolution: {integrity: sha512-WyKb+0sNKDTd1LwwAfTBPp0XmdaKkAOEbg4oHE4Kq2+oQVchg/VAcjVQtSqZih1izNsTURjc2EkhG/syRQUXdA==}
+  /lint-staged/12.1.7:
+    resolution: {integrity: sha512-bltv/ejiLWtowExpjU+s5z8j1Byjg9AlmaAjMmqNbIicY69u6sYIwXGg0dCn0TlkrrY2CphtHIXAkbZ+1VoWQQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -6115,8 +6129,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /shelljs/0.8.4:
-    resolution: {integrity: sha512-7gk3UZ9kOfPLIAbslLzyWeGiEqx9e3rxwZM0KE6EL8GlGwjym9Mrlx5/p33bWTu9YG6vcS4MBxYZDHYr5lr8BQ==}
+  /shelljs/0.8.5:
+    resolution: {integrity: sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==}
     engines: {node: '>=4'}
     hasBin: true
     dependencies:
@@ -6695,7 +6709,7 @@ packages:
     resolution: {integrity: sha512-DdFZBrj+8w/1KB6sa12uucro676gipZ5ImcJIlO68VQANBi++TGOjdp6/UOuRMlbkeSpncCY1QS4bGtlYfBZFg==}
     engines: {node: '>=12.20'}
     dependencies:
-      type-fest: 2.8.0
+      type-fest: 2.9.0
     dev: false
 
   /ts-node/10.4.0_faf01e1d5a40372a98081522dcafc186:
@@ -6820,8 +6834,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /type-fest/2.8.0:
-    resolution: {integrity: sha512-O+V9pAshf9C6loGaH0idwsmugI2LxVNR7DtS40gVo2EXZVYFgz9OuNtOhgHLdHdapOEWNdvz9Ob/eeuaWwwlxA==}
+  /type-fest/2.9.0:
+    resolution: {integrity: sha512-uC0hJKi7eAGXUJ/YKk53RhnKxMwzHWgzf4t92oz8Qez28EBgVTfpDTB59y9hMYLzc/Wl85cD7Tv1hLZZoEJtrg==}
     engines: {node: '>=12.20'}
 
   /type-is/1.6.18:
