@@ -1,8 +1,9 @@
 import parser from 'body-parser';
+import { type NextHandleFunction } from 'connect';
 
-export const jsonPaserMiddleware = parser.json();
-export const rawParserMiddleware = parser.raw();
-export const textParserMiddleware = parser.text();
-export const urlencodedParserMiddleware = parser.urlencoded({
+export const jsonParserMiddleware: NextHandleFunction = parser.json();
+export const rawParserMiddleware: NextHandleFunction = parser.raw();
+export const textParserMiddleware: NextHandleFunction = parser.text();
+export const urlencodedParserMiddleware: NextHandleFunction = parser.urlencoded({
   extended: false,
 });

@@ -6,7 +6,15 @@ import path from 'path';
 import { addAsync } from '@awaitjs/express';
 import pkg from '@/../package.json';
 import { logger } from '@/utils';
-import { contextMiddleware, tracerMiddleware, loggerMiddleware } from './middlewares';
+import {
+  contextMiddleware,
+  tracerMiddleware,
+  loggerMiddleware,
+  jsonParserMiddleware,
+  rawParserMiddleware,
+  textParserMiddleware,
+  urlencodedParserMiddleware,
+} from './middlewares';
 
 // specified port
 const PORT = 3000;
@@ -20,9 +28,19 @@ const app = addAsync(express());
 app.use(contextMiddleware);
 app.use(tracerMiddleware);
 app.use(loggerMiddleware);
+app.use(jsonParserMiddleware);
+app.use(rawParserMiddleware);
+app.use(textParserMiddleware);
+app.use(urlencodedParserMiddleware);
 
 app.getAsync('/', async (request, response) => {
+  console.log('request.body', request.body);
   response.send('Hello Express! This is a GET response.');
+});
+
+app.postAsync('/', async (request, response) => {
+  console.log('request.body', request.body);
+  response.send('Hello Express! This is a POST response.');
 });
 
 const server = HTTPS
