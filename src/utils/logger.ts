@@ -1,4 +1,3 @@
-// import pino, { destination, type LoggerOptions } from 'pino';
 import winston from 'winston';
 import path from 'path';
 import WinstonDailyRotateFile from 'winston-daily-rotate-file';
