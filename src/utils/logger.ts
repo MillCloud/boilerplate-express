@@ -12,7 +12,7 @@ export const logger = winston.createLogger({
   level: isProduction ? 'warn' : 'info',
   transports: isProduction
     ? [
-        // PERF: consider multi process
+        // PERF: consider multi process? https://blog.csdn.net/Justinjiang1314/article/details/80619038
         new WinstonDailyRotateFile({
           filename: '%DATE%.log',
           datePattern: 'YYYY-MM-DD-HH',
