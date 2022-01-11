@@ -11,9 +11,6 @@ import {
   tracerMiddleware,
   loggerMiddleware,
   jsonParserMiddleware,
-  rawParserMiddleware,
-  textParserMiddleware,
-  urlencodedParserMiddleware,
 } from './middlewares';
 
 // specified port
@@ -29,23 +26,18 @@ app.use(contextMiddleware);
 app.use(tracerMiddleware);
 app.use(loggerMiddleware);
 app.use(jsonParserMiddleware);
-app.use(rawParserMiddleware);
-app.use(textParserMiddleware);
-app.use(urlencodedParserMiddleware);
 
 app.getAsync('/', async (request, response) => {
-  console.log('request.body', request.body);
-  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
-  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
-  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
-  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
-  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
-  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
+  console.log('GET / request.body', request.body);
+  logger.warn('GET WARN Id cillum est mollit reprehenderit enim sint occaecat quis.');
+  logger.error('GET ERROR Id cillum est mollit reprehenderit enim sint occaecat quis.');
   response.send('Hello Express! This is a GET response.');
 });
 
 app.postAsync('/', async (request, response) => {
-  console.log('request.body', request.body);
+  console.log('POST / request.body', request.body);
+  logger.warn('POST WARN Id cillum est mollit reprehenderit enim sint occaecat quis.');
+  logger.error('POST ERROR Id cillum est mollit reprehenderit enim sint occaecat quis.');
   response.send('Hello Express! This is a POST response.');
 });
 
