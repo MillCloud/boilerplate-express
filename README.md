@@ -10,19 +10,7 @@ It is under development. Should not use in production environment.
 {
   "nodemonConfig": {
     "execMap": {
-      "ts": "esmo"
-    }
-  }
-}
-```
-
-你也可以指定使用 `ts-node`。
-
-```json
-{
-  "nodemonConfig": {
-    "execMap": {
-      "ts": "node --experimental-specifier-resolution=node --loader=ts-node/esm"
+      "ts": "esmo --experimental-specifier-resolution=node"
     }
   }
 }
