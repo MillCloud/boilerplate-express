@@ -67,7 +67,7 @@ specifiers:
   shelljs: ~0.8.5
   spdy: ~4.0.2
   static-expiry: ~0.0.11
-  supertest: ~6.1.6
+  supertest: ~6.2.0
   timeout: ~0.2.1
   ts-node: ~10.4.0
   type-fest: ~2.9.0
@@ -143,7 +143,7 @@ devDependencies:
   markdownlint-cli: 0.30.0
   nodemon: 2.0.15
   prettier: 2.5.1
-  supertest: 6.1.6
+  supertest: 6.2.0
   ts-node: 10.4.0_typescript@4.5.4
   type-fest: 2.9.0
   typescript: 4.5.4
@@ -1468,7 +1468,6 @@ packages:
 
   /asap/2.0.6:
     resolution: {integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=}
-    dev: false
 
   /ast-types-flow/0.0.7:
     resolution: {integrity: sha1-9wtzXGvKGlycItmCw+Oef+ujva0=}
@@ -2355,7 +2354,6 @@ packages:
     dependencies:
       asap: 2.0.6
       wrappy: 1.0.2
-    dev: false
 
   /dicer/0.2.5:
     resolution: {integrity: sha1-WZbAhrszIYyBLAkL3cCc0S+stw8=}
@@ -3662,8 +3660,8 @@ packages:
     resolution: {integrity: sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==}
     dev: true
 
-  /form-data/3.0.1:
-    resolution: {integrity: sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==}
+  /form-data/4.0.0:
+    resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
     engines: {node: '>= 6'}
     dependencies:
       asynckit: 0.4.0
@@ -3678,11 +3676,6 @@ packages:
       fetch-blob: 3.1.3
     dev: false
 
-  /formidable/1.2.6:
-    resolution: {integrity: sha512-KcpbcpuLNOwrEjnbpMC0gS+X8ciDoZE1kkqzat4a8vrprf+s9pKNQ/QIwWfbfs4ltgmFl3MD177SNTkve3BwGQ==}
-    deprecated: 'Please upgrade to latest, formidable@v2 or formidable@v3! Check these notes: https://bit.ly/2ZEqIau'
-    dev: true
-
   /formidable/2.0.1:
     resolution: {integrity: sha512-rjTMNbp2BpfQShhFbR3Ruk3qk2y9jKpvMW78nJgx8QKtxjDVrwbZG+wvDOmVbifHyOUOQJXxqEy6r0faRrPzTQ==}
     dependencies:
@@ -3690,7 +3683,6 @@ packages:
       hexoid: 1.0.0
       once: 1.4.0
       qs: 6.9.3
-    dev: false
 
   /forwarded/0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
@@ -3998,7 +3990,6 @@ packages:
   /hexoid/1.0.0:
     resolution: {integrity: sha512-QFLV0taWQOZtvIRIAdBChesmogZrtuXvVWsFHZTk2SU+anspqZ2vMnoLg7IE1+Uk16N19APic1BuF8bC8c2m5g==}
     engines: {node: '>=8'}
-    dev: false
 
   /homedir-polyfill/1.0.3:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
@@ -5665,14 +5656,21 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     dev: true
 
+  /qs/6.10.2:
+    resolution: {integrity: sha512-mSIdjzqznWgfd4pMii7sHtaYF8rx8861hBO80SraY5GT0XQibWZWJSid0avzHGkDIZLImux2S5mXO0Hfct2QCw==}
+    engines: {node: '>=0.6'}
+    dependencies:
+      side-channel: 1.0.4
+    dev: true
+
   /qs/6.9.3:
     resolution: {integrity: sha512-EbZYNarm6138UKKq46tdx08Yo/q9ZhFoAXAI1meAFd2GtbRDhbZY2WQSICskT0c5q99aFzLG1D4nvTk9tqfXIw==}
     engines: {node: '>=0.6'}
-    dev: false
 
   /qs/6.9.6:
     resolution: {integrity: sha512-TIRk4aqYLNoJUbd+g2lEdz5kLWIuTMRagAXxl78Q0RiVjAOugHmeKNGdd3cwo/ktpf9aL9epCfFqWDEKysUlLQ==}
     engines: {node: '>=0.6'}
+    dev: false
 
   /query-string/7.1.0:
     resolution: {integrity: sha512-wnJ8covk+S9isYR5JIXPt93kFUmI2fQ4R/8130fuq+qwLiGVTurg7Klodgfw4NSz/oe7xnyi09y3lSrogUeM3g==}
@@ -6552,31 +6550,31 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /superagent/6.1.0:
-    resolution: {integrity: sha512-OUDHEssirmplo3F+1HWKUrUjvnQuA+nZI6i/JJBdXb5eq9IyEQwPyPpqND+SSsxf6TygpBEkUjISVRN4/VOpeg==}
-    engines: {node: '>= 7.0.0'}
+  /superagent/7.0.1:
+    resolution: {integrity: sha512-2nFiZ2ds29iRFSjZ291vq+AxqUDg8BdFeg/AObJkDpCVJX6IJT8fU7egBOkYwmxPwaDoNrNu8qRDvtAV/7ZTPw==}
+    engines: {node: '>=6.4.0 !13'}
     dependencies:
       component-emitter: 1.3.0
       cookiejar: 2.1.3
       debug: 4.3.3
       fast-safe-stringify: 2.1.1
-      form-data: 3.0.1
-      formidable: 1.2.6
+      form-data: 4.0.0
+      formidable: 2.0.1
       methods: 1.1.2
       mime: 2.6.0
-      qs: 6.9.6
+      qs: 6.10.2
       readable-stream: 3.6.0
       semver: 7.3.5
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /supertest/6.1.6:
-    resolution: {integrity: sha512-0hACYGNJ8OHRg8CRITeZOdbjur7NLuNs0mBjVhdpxi7hP6t3QIbOzLON5RTUmZcy2I9riuII3+Pr2C7yztrIIg==}
+  /supertest/6.2.0:
+    resolution: {integrity: sha512-JU30iTy0Utm5GbVJvrtt6RHNQECiqVl6KckEVhnR0AoGzFGq0IFMmBXnoTxYy9pM/vgufiPevjxlF39XaKn77Q==}
     engines: {node: '>=6.0.0'}
     dependencies:
       methods: 1.1.2
-      superagent: 6.1.0
+      superagent: 7.0.1
     transitivePeerDependencies:
       - supports-color
     dev: true
