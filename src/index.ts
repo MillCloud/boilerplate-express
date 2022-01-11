@@ -4,12 +4,13 @@ import pico from 'picocolors';
 import fs from 'fs';
 import path from 'path';
 import { addAsync } from '@awaitjs/express';
-import pkg from '@/../package.json';
 import { logger } from '@/utils';
+import pkg from '../package.json';
 import {
   contextMiddleware,
   tracerMiddleware,
-  loggerMiddleware,
+  requestLoggerMiddleware,
+  errorLoggerMiddleware,
   jsonParserMiddleware,
 } from './middlewares';
 
@@ -24,7 +25,7 @@ const app = addAsync(express());
 
 app.use(contextMiddleware);
 app.use(tracerMiddleware);
-app.use(loggerMiddleware);
+app.use(requestLoggerMiddleware);
 app.use(jsonParserMiddleware);
 
 app.getAsync('/', async (request, response) => {
@@ -40,6 +41,8 @@ app.postAsync('/', async (request, response) => {
   logger.error('POST ERROR Id cillum est mollit reprehenderit enim sint occaecat quis.');
   response.send('Hello Express! This is a POST response.');
 });
+
+app.use(errorLoggerMiddleware);
 
 const server = HTTPS
   ? spdy.createServer(

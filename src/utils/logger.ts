@@ -1,44 +1,49 @@
-import pino, { destination, type LoggerOptions } from 'pino';
+// import pino, { destination, type LoggerOptions } from 'pino';
+import winston from 'winston';
 import path from 'path';
+import WinstonDailyRotateFile from 'winston-daily-rotate-file';
 import { isProduction } from './isProduction';
 import { tracer } from './tracer';
-import pkg from '@/../package.json';
 
-const options: LoggerOptions = {
-  base: null,
-  formatters: {
-    level: (level) => ({ level }),
-  },
+const { format, transports } = winston;
+const { combine, colorize, timestamp, json, errors } = format;
+const { File, Console } = transports;
+
+export const logger = winston.createLogger({
   level: isProduction ? 'warn' : 'info',
-  mixin: isProduction
-    ? () => ({
-        reqId: tracer.id(),
-      })
-    : undefined,
-  redact: undefined,
-  timestamp: pino.stdTimeFunctions.isoTime,
-  transport: isProduction
-    ? undefined
-    : {
-        target: 'pino-http-print',
-        options: {
-          all: true,
-          relativeUrl: true,
-          lax: true,
-        },
-      },
-};
-
-// for log rotation
-// see https://getpino.io/#/docs/help?id=reopening-log-files
-const destinationStream = destination({
-  dest: path.resolve('logs', `${pkg.name}.log`),
-  mkdir: true,
-  sync: false,
-  retryEAGAIN: () => true,
+  transports: isProduction
+    ? [
+        new File({
+          filename: path.resolve('logs', 'index.log'),
+          level: 'warn',
+        }),
+        new WinstonDailyRotateFile({
+          filename: 'application-%DATE%.log',
+          datePattern: 'YYYY-MM-DD-HH',
+          zippedArchive: true,
+          dirname: path.resolve('logs'),
+          maxFiles: '14d',
+        }),
+      ]
+    : [new Console()],
+  format: combine(
+    colorize(),
+    format((info) => {
+      const id = tracer.id();
+      if (id) {
+        // eslint-disable-next-line no-param-reassign
+        info.requestId = id;
+      }
+      return info;
+    })(),
+    timestamp(),
+    json(),
+    errors({ stack: true }),
+    format.printf(
+      (info) =>
+        `${info?.timestamp} ${info?.requestId ?? ''} ${info?.level}: ${info?.message} ${
+          info?.meta?.res?.statusCode ?? ''
+        } ${info?.meta?.responseTime ?? 0}ms`,
+    ),
+  ),
 });
-if (isProduction) {
-  process.on('SIGHUP', () => destinationStream.reopen());
-}
-
-export const logger = isProduction ? pino(options, destinationStream) : pino(options);
