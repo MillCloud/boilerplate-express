@@ -35,6 +35,12 @@ app.use(urlencodedParserMiddleware);
 
 app.getAsync('/', async (request, response) => {
   console.log('request.body', request.body);
+  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
+  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
+  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
+  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
+  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
+  logger.warn('Id cillum est mollit reprehenderit enim sint occaecat quis.');
   response.send('Hello Express! This is a GET response.');
 });
 
@@ -62,7 +68,9 @@ server.listen(PORT, (error) => {
   }
   logger.info(
     pico.cyan(
-      `${pkg.name}@${pkg.version} is listening at ${HTTPS ? 'https' : 'http'}://localhost:${PORT}.`,
+      `${pkg.name}@${pkg.version} in ${(
+        process.env.NODE_ENV || 'DEVELOPMENT'
+      ).toUpperCase()} is listening at ${HTTPS ? 'https' : 'http'}://localhost:${PORT}.`,
     ),
   );
 });
