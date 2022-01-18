@@ -9,10 +9,11 @@ import pkg from '../package.json';
 import {
   compressionMiddleware,
   corsMiddleware,
-  tracerMiddleware,
   requestLoggerMiddleware,
   errorLoggerMiddleware,
   jsonParserMiddleware,
+  partialResponseMiddleware,
+  tracerMiddleware,
 } from './middlewares';
 
 // specified port
@@ -29,6 +30,7 @@ app.use(tracerMiddleware);
 app.use(requestLoggerMiddleware);
 app.use(jsonParserMiddleware);
 app.use(compressionMiddleware);
+app.use(partialResponseMiddleware);
 
 app.getAsync('/', async (request, response) => {
   console.log('GET / request.body', request.body);
