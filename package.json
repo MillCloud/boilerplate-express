@@ -34,7 +34,6 @@
     "cors": "~2.8.5",
     "dayjs": "~1.10.7",
     "express": "~4.17.2",
-    "express-http-context": "~1.2.4",
     "express-partial-response": "~1.0.4",
     "express-validator": "~6.14.0",
     "express-winston": "~4.2.0",
