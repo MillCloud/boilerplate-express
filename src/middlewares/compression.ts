@@ -1,5 +1,3 @@
 import compression from 'compression';
 
-const compressionMiddleware = compression();
-
-export { compressionMiddleware };
+export const compressionMiddleware = compression();

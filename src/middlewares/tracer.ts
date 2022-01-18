@@ -1,5 +1,3 @@
 import { tracer } from '@/utils';
 
-const tracerMiddleware = tracer.expressMiddleware();
-
-export { tracerMiddleware };
+export const tracerMiddleware = tracer.expressMiddleware();
