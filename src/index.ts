@@ -8,7 +8,6 @@ import { logger } from '@/utils';
 import pkg from '../package.json';
 import {
   compressionMiddleware,
-  contextMiddleware,
   corsMiddleware,
   tracerMiddleware,
   requestLoggerMiddleware,
@@ -26,7 +25,6 @@ const HTTPS = Boolean(JSON.parse(process.env.HTTPS ?? 'false')) || false;
 const app = addAsync(express());
 
 app.use(corsMiddleware);
-app.use(contextMiddleware);
 app.use(tracerMiddleware);
 app.use(requestLoggerMiddleware);
 app.use(jsonParserMiddleware);
