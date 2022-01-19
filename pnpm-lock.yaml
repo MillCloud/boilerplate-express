@@ -18,7 +18,6 @@ specifiers:
   '@types/shelljs': ~0.8.11
   '@types/spdy': ~3.4.5
   '@types/supertest': ~2.0.11
-  '@types/timeout': ~0.2.0
   '@typescript-eslint/eslint-plugin': ~5.10.0
   '@typescript-eslint/parser': ~5.10.0
   body-parser: ~1.19.1
@@ -38,7 +37,7 @@ specifiers:
   helmet: ~5.0.1
   husky: ~7.0.4
   is-ci: ~3.0.1
-  lint-staged: ~12.1.7
+  lint-staged: ~12.2.0
   markdownlint-cli: ~0.30.0
   mime-types: ~2.1.34
   mongoose: ~6.1.7
@@ -52,9 +51,7 @@ specifiers:
   serve-static: ~1.14.2
   shelljs: ~0.8.5
   spdy: ~4.0.2
-  static-expiry: ~0.0.11
-  supertest: ~6.2.1
-  timeout: ~0.2.1
+  supertest: ~6.2.2
   tsconfig-paths: ~3.12.0
   type-fest: ~2.9.0
   typescript: ~4.5.4
@@ -84,8 +81,6 @@ dependencies:
   serve-static: 1.14.2
   shelljs: 0.8.5
   spdy: 4.0.2
-  static-expiry: 0.0.11
-  timeout: 0.2.1
   winston: 3.4.0
   winston-daily-rotate-file: 4.5.5_winston@3.4.0
 
@@ -105,7 +100,6 @@ devDependencies:
   '@types/shelljs': 0.8.11
   '@types/spdy': 3.4.5
   '@types/supertest': 2.0.11
-  '@types/timeout': 0.2.0
   '@typescript-eslint/eslint-plugin': 5.10.0_3b6b276e93ead7cf6063f183a5e18d1f
   '@typescript-eslint/parser': 5.10.0_eslint@8.7.0+typescript@4.5.4
   commitizen: 4.2.4
@@ -114,12 +108,12 @@ devDependencies:
   esno: 0.14.0_typescript@4.5.4
   husky: 7.0.4
   is-ci: 3.0.1
-  lint-staged: 12.1.7
+  lint-staged: 12.2.0
   markdownlint-cli: 0.30.0
   nodemon: 2.0.15
   pm2: 5.1.2
   prettier: 2.5.1
-  supertest: 6.2.1
+  supertest: 6.2.2
   tsconfig-paths: 3.12.0
   type-fest: 2.9.0
   typescript: 4.5.4
@@ -1057,10 +1051,6 @@ packages:
       '@types/superagent': 4.1.14
     dev: true
 
-  /@types/timeout/0.2.0:
-    resolution: {integrity: sha512-dCEZVRdWV8UOP80OjESAHPN/QANuTbC5Iu7ureYfm07UaJDjdpg/ShSMnA4QpVKAghzKybK7nUvwz2Qq/OP7AA==}
-    dev: true
-
   /@types/uuid/8.3.4:
     resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
     dev: false
@@ -1802,12 +1792,6 @@ packages:
       no-case: 3.0.4
       tslib: 2.3.1
       upper-case-first: 2.0.2
-    dev: false
-
-  /chainsaw/0.0.9:
-    resolution: {integrity: sha1-EaBRAtHEx4W20EFdM21aOhYSkT4=}
-    dependencies:
-      traverse: 0.3.9
     dev: false
 
   /chalk/2.4.2:
@@ -3761,12 +3745,6 @@ packages:
       path-exists: 4.0.0
     dev: true
 
-  /findit/0.1.2:
-    resolution: {integrity: sha1-rH/mAM1qMqNWcoNrdM9vHd4uEfg=}
-    dependencies:
-      seq: 0.3.5
-    dev: false
-
   /findup-sync/4.0.0:
     resolution: {integrity: sha512-6jvvn/12IC4quLBL1KNokxC7wWTvYncaVUYSoxWw7YykPLuRrnv4qdHcSOywOI5RpkOVGeQRtWM8/q+G6W6qfQ==}
     engines: {node: '>= 8'}
@@ -3832,10 +3810,6 @@ packages:
   /forwarded/0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
     engines: {node: '>= 0.6'}
-    dev: false
-
-  /fresh/0.1.0:
-    resolution: {integrity: sha1-A+SwF4Qk5MLV0ZpU2IFM3JeTSFA=}
     dev: false
 
   /fresh/0.5.2:
@@ -4144,12 +4118,6 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
-
-  /hashish/0.0.4:
-    resolution: {integrity: sha1-bWC8b/r3Ebav1g5CbQd5iAFOZVQ=}
-    dependencies:
-      traverse: 0.6.6
-    dev: false
 
   /header-case/2.0.4:
     resolution: {integrity: sha512-H/vuk5TEEVZwrR0lp2zed9OCo1uAILMlx0JEMgC26rzyJJ3N1v6XkwHHXJQdR2doSjcGPM6OKPYoJgf0plJ11Q==}
@@ -4785,8 +4753,8 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
-  /lint-staged/12.1.7:
-    resolution: {integrity: sha512-bltv/ejiLWtowExpjU+s5z8j1Byjg9AlmaAjMmqNbIicY69u6sYIwXGg0dCn0TlkrrY2CphtHIXAkbZ+1VoWQQ==}
+  /lint-staged/12.2.0:
+    resolution: {integrity: sha512-TnNciMBhmEqzqM+RvzqqdvrG4TsI8wCDMX1Vg9+rj2Y9uY70Nq84Mb1WOIiwxW9l5tUlCOqtY5La71RM2fSgfA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -6425,13 +6393,6 @@ packages:
       upper-case-first: 2.0.2
     dev: false
 
-  /seq/0.3.5:
-    resolution: {integrity: sha1-rgKvOkJHk9jMvyEtaRdODFTf/jg=}
-    dependencies:
-      chainsaw: 0.0.9
-      hashish: 0.0.4
-    dev: false
-
   /serve-static/1.14.2:
     resolution: {integrity: sha512-+TMNA9AFxUEGuC0z2mevogSnn9MXKb4fa7ngeRMJaaGv8vTwnIEkKi+QGvPt33HSnf8pRS+WGM0EbMtCJLKMBQ==}
     engines: {node: '>= 0.8.0'}
@@ -6670,14 +6631,6 @@ packages:
     resolution: {integrity: sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA=}
     dev: false
 
-  /static-expiry/0.0.11:
-    resolution: {integrity: sha1-uIj5QU1DJg8EPrdPz/AYSgoCJWU=}
-    engines: {node: '>= 0.8.21'}
-    dependencies:
-      findit: 0.1.2
-      fresh: 0.1.0
-    dev: false
-
   /statuses/1.5.0:
     resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=}
     engines: {node: '>= 0.6'}
@@ -6910,9 +6863,10 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /superagent/7.0.2:
-    resolution: {integrity: sha512-2Kx35bZxLLJMBKtuXezxvD0aZQ7l923VwoCn7EtUx+aFxdG7co7PeRIddfrNtvvMuGaLZXA0mKzX+yWRhjrJ7A==}
+  /superagent/7.1.0:
+    resolution: {integrity: sha512-hbogIdmfjWtAkTfLlpoObeWb5phVJ95JFSkILCTCHoCG1U7s4XnY3WQ5j9C82YaxqLnMMliuFfngI+3liQ12ng==}
     engines: {node: '>=6.4.0 <13 || >=14'}
+    deprecated: There is a bug with options.lookup in this version per https://github.com/visionmedia/superagent/issues/1673
     dependencies:
       component-emitter: 1.3.0
       cookiejar: 2.1.3
@@ -6929,12 +6883,12 @@ packages:
       - supports-color
     dev: true
 
-  /supertest/6.2.1:
-    resolution: {integrity: sha512-2kBKhfZgnPLmjpzB0n7A2ZnEAWTaLXq4bn3EEVY9w8rUpLyIlSusqKKvWA1Cav7hxXBnXGpxBsSeOHj5wQGe1Q==}
+  /supertest/6.2.2:
+    resolution: {integrity: sha512-wCw9WhAtKJsBvh07RaS+/By91NNE0Wh0DN19/hWPlBOU8tAfOtbZoVSV4xXeoKoxgPx0rx2y+y+8660XtE7jzg==}
     engines: {node: '>=6.0.0'}
     dependencies:
       methods: 1.1.2
-      superagent: 7.0.2
+      superagent: 7.1.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7008,10 +6962,6 @@ packages:
       readable-stream: 3.6.0
     dev: true
 
-  /timeout/0.2.1:
-    resolution: {integrity: sha1-MVY1PccIneM+umNWtkjnGmjoJ1g=}
-    dev: false
-
   /tmp/0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
     engines: {node: '>=0.6.0'}
@@ -7052,14 +7002,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       punycode: 2.1.1
-    dev: false
-
-  /traverse/0.3.9:
-    resolution: {integrity: sha1-cXuPIgzAu3tE5AUUwisui7xw2Lk=}
-    dev: false
-
-  /traverse/0.6.6:
-    resolution: {integrity: sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc=}
     dev: false
 
   /trim-newlines/3.0.1:
