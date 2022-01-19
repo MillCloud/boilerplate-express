@@ -5,8 +5,6 @@ import { isProduction } from './isProduction';
 import { tracer } from './tracer';
 
 const { format, transports } = winston;
-const { combine, colorize, timestamp, json, errors } = format;
-const { Console } = transports;
 
 export const logger = winston.createLogger({
   level: isProduction ? 'warn' : 'info',
@@ -22,10 +20,10 @@ export const logger = winston.createLogger({
           level: 'warn',
         }),
       ]
-    : [new Console()],
-  format: combine(
+    : [new transports.Console()],
+  format: format.combine(
     ...([
-      isProduction ? undefined : colorize(),
+      isProduction ? undefined : format.colorize(),
       format((info) => {
         const id = tracer.id();
         if (id) {
@@ -34,15 +32,22 @@ export const logger = winston.createLogger({
         }
         return info;
       })(),
-      timestamp(),
-      json(),
-      errors({ stack: true }),
-      format.printf(
-        (info) =>
-          `${info?.timestamp} ${info?.requestId ?? ''} ${info?.level}: ${info?.message} ${
-            info?.meta?.res?.statusCode ?? ''
-          } ${info?.meta?.responseTime ?? 0}ms`,
-      ),
+      format.timestamp(),
+      format.json(),
+      format.errors({ stack: true }),
+      format.printf((info) => {
+        const timestamp = info?.timestamp ?? '';
+        const requestId = info?.requestId ?? '';
+        const level = info?.level ?? '';
+        const message = info?.message ?? '';
+        const statusCode =
+          info?.meta?.res?.statusCode ?? info?.res?.statusCode ?? info?.statusCode ?? '';
+        const responseTime = `${info?.meta?.responseTime ?? info?.responseTime ?? 0}ms`;
+        return `${timestamp} ${requestId} ${level} ${message} ${statusCode} ${responseTime}`.replace(
+          /\s+/g,
+          ' ',
+        );
+      }),
     ].filter((item) => !!item) as winston.Logform.Format[]),
   ),
 });
