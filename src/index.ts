@@ -13,6 +13,7 @@ import {
   requestLoggerMiddleware,
   errorLoggerMiddleware,
   jsonParserMiddleware,
+  staticMiddleware,
   tracerMiddleware,
 } from './middlewares';
 
@@ -31,6 +32,7 @@ app.use(tracerMiddleware);
 app.use(requestLoggerMiddleware);
 app.use(jsonParserMiddleware);
 app.use(compressionMiddleware);
+app.use('/static', staticMiddleware);
 
 app.getAsync('/', async (request, response) => {
   console.log('GET / request.body', request.body);
