@@ -9,6 +9,7 @@ import pkg from '../package.json';
 import {
   compressionMiddleware,
   corsMiddleware,
+  helmetMiddleware,
   requestLoggerMiddleware,
   errorLoggerMiddleware,
   jsonParserMiddleware,
@@ -25,6 +26,7 @@ const HTTPS = Boolean(JSON.parse(process.env.HTTPS ?? 'false')) || false;
 const app = addAsync(express());
 
 app.use(corsMiddleware);
+app.use(helmetMiddleware);
 app.use(tracerMiddleware);
 app.use(requestLoggerMiddleware);
 app.use(jsonParserMiddleware);
