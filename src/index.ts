@@ -12,7 +12,6 @@ import {
   requestLoggerMiddleware,
   errorLoggerMiddleware,
   jsonParserMiddleware,
-  partialResponseMiddleware,
   tracerMiddleware,
 } from './middlewares';
 
@@ -29,7 +28,6 @@ app.use(corsMiddleware);
 app.use(tracerMiddleware);
 app.use(requestLoggerMiddleware);
 app.use(jsonParserMiddleware);
-app.use(partialResponseMiddleware);
 app.use(compressionMiddleware);
 
 app.getAsync('/', async (request, response) => {
