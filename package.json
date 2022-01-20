@@ -54,7 +54,7 @@
   "devDependencies": {
     "@babel/core": "~7.16.7",
     "@babel/eslint-parser": "~7.16.5",
-    "@commitlint/cli": "~16.0.2",
+    "@commitlint/cli": "~16.1.0",
     "@modyqyw/fabric": "~4.8.0",
     "@types/body-parser": "~1.19.2",
     "@types/compression": "~1.7.2",
