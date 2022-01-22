@@ -56,7 +56,7 @@ specifiers:
   type-fest: ~2.9.0
   typescript: ~4.5.4
   winston: ~3.4.0
-  winston-daily-rotate-file: ~4.5.5
+  winston-daily-rotate-file: ~4.6.0
 
 dependencies:
   '@awaitjs/express': 0.9.0_1b803edea6f06711ee906a90f400b6a4
@@ -82,7 +82,7 @@ dependencies:
   shelljs: 0.8.5
   spdy: 4.0.2
   winston: 3.4.0
-  winston-daily-rotate-file: 4.5.5_winston@3.4.0
+  winston-daily-rotate-file: 4.6.0_winston@3.4.0
 
 devDependencies:
   '@babel/core': 7.16.7
@@ -3675,8 +3675,8 @@ packages:
       flat-cache: 3.0.4
     dev: true
 
-  /file-stream-rotator/0.5.7:
-    resolution: {integrity: sha512-VYb3HZ/GiAGUCrfeakO8Mp54YGswNUHvL7P09WQcXAJNSj3iQ5QraYSp3cIn1MUyw6uzfgN/EFOarCNa4JvUHQ==}
+  /file-stream-rotator/0.6.1:
+    resolution: {integrity: sha512-u+dBid4PvZw17PmDeRcNOtCP9CCK/9lRN2w+r1xIS7yOL9JFrIBKTvrYsxT4P0pGtThYTn++QS5ChHaUov3+zQ==}
     dependencies:
       moment: 2.29.1
     dev: false
@@ -7423,13 +7423,13 @@ packages:
       string-width: 4.2.3
     dev: true
 
-  /winston-daily-rotate-file/4.5.5_winston@3.4.0:
-    resolution: {integrity: sha512-ds0WahIjiDhKCiMXmY799pDBW+58ByqIBtUcsqr4oDoXrAI3Zn+hbgFdUxzMfqA93OG0mPLYVMiotqTgE/WeWQ==}
-    engines: {node: '>=8'}
+  /winston-daily-rotate-file/4.6.0_winston@3.4.0:
+    resolution: {integrity: sha512-mvpFb1LYmTvh/vz0dIS/aDCwEm0cvDa8D/tE4xWwdUYolD250wf+n0y1PZ2xr7fbvTLF/PQYqXtFIFrmog03Ow==}
+    engines: {node: '>=12'}
     peerDependencies:
       winston: ^3
     dependencies:
-      file-stream-rotator: 0.5.7
+      file-stream-rotator: 0.6.1
       object-hash: 2.2.0
       triple-beam: 1.3.0
       winston: 3.4.0

@@ -49,7 +49,7 @@
     "shelljs": "~0.8.5",
     "spdy": "~4.0.2",
     "winston": "~3.4.0",
-    "winston-daily-rotate-file": "~4.5.5"
+    "winston-daily-rotate-file": "~4.6.0"
   },
   "devDependencies": {
     "@babel/core": "~7.16.7",
