@@ -31,6 +31,7 @@ specifiers:
   eslint: ~8.8.0
   esno: ~0.14.0
   express: ~4.17.2
+  express-static-gzip: ~2.1.1
   express-validator: ~6.14.0
   express-winston: ~4.2.0
   formidable: ~2.0.1
@@ -48,7 +49,6 @@ specifiers:
   pm2: ~5.1.2
   prettier: ~2.5.1
   query-string: ~7.1.0
-  serve-static: ~1.14.2
   shelljs: ~0.8.5
   spdy: ~4.0.2
   supertest: ~6.2.2
@@ -68,6 +68,7 @@ dependencies:
   cors: 2.8.5
   dayjs: 1.10.7
   express: 4.17.2
+  express-static-gzip: 2.1.1
   express-validator: 6.14.0
   express-winston: 4.2.0_winston@3.5.0
   formidable: 2.0.1
@@ -78,7 +79,6 @@ dependencies:
   node-fetch: 3.2.0
   picocolors: 1.0.0
   query-string: 7.1.0
-  serve-static: 1.14.2
   shelljs: 0.8.5
   spdy: 4.0.2
   winston: 3.5.0
@@ -3274,6 +3274,12 @@ packages:
     dependencies:
       homedir-polyfill: 1.0.3
     dev: true
+
+  /express-static-gzip/2.1.1:
+    resolution: {integrity: sha512-J+xSzdr5lj1cIuZey0ac6nUv22VE7GrdwTERqE8DsrqSXLm1zjeYWTVbK37t8exGwobxBXeWU2bM7eSMjBR4YA==}
+    dependencies:
+      serve-static: 1.14.2
+    dev: false
 
   /express-validator/6.14.0:
     resolution: {integrity: sha512-ZWHJfnRgePp3FKRSKMtnZVnD1s8ZchWD+jSl7UMseGIqhweCo1Z9916/xXBbJAa6PrA3pUZfkOvIsHZG4ZtIMw==}
