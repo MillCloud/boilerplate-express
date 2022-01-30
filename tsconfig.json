@@ -7,8 +7,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "preserveSymlinks": true,
-    "types": ["type-fest"],
+    "types": ["@types/connect", "@types/express-serve-static-core", "@types/qs", "type-fest"],
     "target": "ESNext"
   },
   "include": [
