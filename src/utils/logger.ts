@@ -1,21 +1,20 @@
 import winston from 'winston';
 import path from 'path';
 import WinstonDailyRotateFile from 'winston-daily-rotate-file';
-import { isProduction } from './isProduction';
+import { IS_PRODUCTION } from '@/constants';
 import { tracer } from './tracer';
 
 const { format, transports } = winston;
 
 export const logger = winston.createLogger({
-  level: isProduction ? 'warn' : 'info',
-  transports: isProduction
+  level: IS_PRODUCTION ? 'warn' : 'info',
+  transports: IS_PRODUCTION
     ? [
-        // PERF: consider multi process? https://blog.csdn.net/Justinjiang1314/article/details/80619038
         new WinstonDailyRotateFile({
           filename: '%DATE%.log',
-          datePattern: 'YYYY-MM-DD-HH',
+          datePattern: 'YYYY-MM-DD',
           zippedArchive: true,
-          dirname: path.resolve('logs'),
+          dirname: path.resolve('logs', process.pid.toString()),
           maxFiles: '14d',
           level: 'warn',
         }),
@@ -23,7 +22,7 @@ export const logger = winston.createLogger({
     : [new transports.Console()],
   format: format.combine(
     ...([
-      isProduction ? undefined : format.colorize(),
+      IS_PRODUCTION ? undefined : format.colorize(),
       format((info) => {
         const id = tracer.id();
         if (id) {

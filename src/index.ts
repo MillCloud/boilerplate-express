@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { addAsync } from '@awaitjs/express';
 import { logger } from '@/utils';
+import { PORT, HTTPS } from '@/constants';
 import pkg from '../package.json';
 import {
   compressionMiddleware,
@@ -16,13 +17,6 @@ import {
   staticMiddleware,
   tracerMiddleware,
 } from './middlewares';
-
-// specified port
-const PORT = 3000;
-
-// it is very expensive in terms of performances to handle the ssl termination with node
-// be careful
-const HTTPS = Boolean(JSON.parse(process.env.HTTPS ?? 'false')) || false;
 
 const app = addAsync(express());
 
@@ -75,3 +69,5 @@ server.listen(PORT, (error) => {
     ),
   );
 });
+
+// TODO: gracefully shutdown server
