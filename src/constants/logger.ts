@@ -36,17 +36,35 @@ export const LOGGER_FORMAT = format.combine(
     format.json(),
     format.errors({ stack: true }),
     format.printf((info) => {
-      const timestamp = info?.timestamp ?? '';
-      const requestId = info?.requestId ?? '';
-      const level = info?.level ?? '';
-      const message = info?.message ?? '';
+      const timestamp = info?.timestamp ?? 'NO_TIMESTAMP';
+      const requestId = info?.requestId ?? 'NO_REQUEST_ID';
+      const level = info?.level ?? 'NO_LEVEL';
       const statusCode =
-        info?.meta?.res?.statusCode ?? info?.res?.statusCode ?? info?.statusCode ?? '';
+        info?.meta?.error?.status ??
+        info?.meta?.error?.statusCode ??
+        info?.meta?.res?.status ??
+        info?.meta?.res?.statusCode ??
+        info?.error?.status ??
+        info?.error?.statusCode ??
+        info?.res?.status ??
+        info?.res?.statusCode ??
+        info?.status ??
+        info?.statusCode ??
+        'NO_STATUS_CODE';
       const responseTime = `${info?.meta?.responseTime ?? info?.responseTime ?? 0}ms`;
-      return `${timestamp} ${requestId} ${level} ${message} ${statusCode} ${responseTime}`.replace(
-        /\s+/g,
-        ' ',
-      );
+      const message =
+        info?.meta?.error?.message ??
+        info?.meta?.error?.msg ??
+        info?.meta?.res?.message ??
+        info?.meta?.res?.msg ??
+        info?.error?.message ??
+        info?.error?.msg ??
+        info?.res?.message ??
+        info?.res?.msg ??
+        info?.message ??
+        info?.msg ??
+        'NO_MESSAGE';
+      return `${timestamp} ${requestId} ${level} ${statusCode} ${responseTime} ${message}`.trim();
     }),
   ].filter((item) => !!item) as winston.Logform.Format[]),
 );
