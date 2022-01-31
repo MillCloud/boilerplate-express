@@ -1,4 +1,4 @@
-import { ExpressWithAsync } from '@awaitjs/express';
+import { Express } from 'express';
 
 import { compressionMiddleware } from './compression';
 import { corsMiddleware } from './cors';
@@ -18,7 +18,7 @@ export * from './parser';
 export * from './static';
 export * from './tracer';
 
-export const useMiddlewares = (app: ExpressWithAsync) => {
+export const useMiddlewares = (app: Express) => {
   app.use(requestLoggerMiddleware);
   app.use(corsMiddleware);
   app.use(helmetMiddleware);
@@ -29,7 +29,7 @@ export const useMiddlewares = (app: ExpressWithAsync) => {
   app.use('/static', staticMiddleware);
 };
 
-export const useErrorMiddlewares = (app: ExpressWithAsync) => {
+export const useErrorMiddlewares = (app: Express) => {
   app.use(errorLoggerMiddleware);
   app.use(errorMiddleware);
 };
