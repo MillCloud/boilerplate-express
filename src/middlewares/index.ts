@@ -9,6 +9,7 @@ import { jsonParserMiddleware, urlencodedParserMiddleware } from './parser';
 import { staticMiddleware } from './static';
 import { tracerMiddleware } from './tracer';
 
+export * from './auth';
 export * from './compression';
 export * from './cors';
 export * from './error';
