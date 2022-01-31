@@ -1,18 +1,11 @@
 import { Router } from 'express';
+import { homeController } from '@/controllers';
 
 export const base = '/';
 const router = Router();
 
-router.get('/', async (request, response) => {
-  response.json({
-    message: 'Hello Express! This is a GET response.',
-  });
-});
+router.get('/', homeController.get);
 
-router.post('/', async (request, response) => {
-  response.json({
-    message: 'Hello Express! This is a POST response.',
-  });
-});
+router.post('/', homeController.post);
 
 export { router };
