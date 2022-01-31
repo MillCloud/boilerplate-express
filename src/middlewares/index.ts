@@ -16,6 +16,7 @@ export * from './error';
 export * from './helmet';
 export * from './logger';
 export * from './parser';
+export * from './rate-limit';
 export * from './static';
 export * from './tracer';
 
