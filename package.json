@@ -9,7 +9,7 @@
     "commit": "git-cz",
     "dev": "nodemon ./src/index.ts --watch ./src",
     "dev:https": "cross-env HTTPS=true nodemon ./src/index.ts --watch ./src",
-    "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint",
+    "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && tsc",
     "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
