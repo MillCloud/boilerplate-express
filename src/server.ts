@@ -10,8 +10,8 @@ import { logger } from './middlewares/logger';
 const server = APP_HTTPS
   ? spdy.createServer(
       {
-        key: fs.readFileSync(path.resolve('src', 'localhost-key.pem')),
-        cert: fs.readFileSync(path.resolve('src', 'localhost.pem')),
+        key: fs.readFileSync(path.resolve(process.cwd(), 'src', 'localhost-key.pem')),
+        cert: fs.readFileSync(path.resolve(process.cwd(), 'src', 'localhost.pem')),
       },
       app,
     )

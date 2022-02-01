@@ -2,7 +2,7 @@ import serveStatic from 'express-static-gzip';
 import contentDisposition from 'content-disposition';
 import path from 'path';
 
-export const staticMiddleware = serveStatic(path.resolve('src', 'static'), {
+export const staticMiddleware = serveStatic(path.resolve(process.cwd(), 'src', 'static'), {
   index: false,
   serveStatic: {
     fallthrough: false,

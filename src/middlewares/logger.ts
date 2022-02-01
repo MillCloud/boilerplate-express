@@ -15,7 +15,7 @@ export const logger = winston.createLogger({
           filename: '%DATE%.log',
           datePattern: 'YYYY-MM-DD',
           zippedArchive: true,
-          dirname: path.resolve('logs', process.pid.toString()),
+          dirname: path.resolve(process.cwd(), 'logs', process.pid.toString()),
           maxFiles: '14d',
           level: 'warn',
         }),
