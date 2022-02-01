@@ -10,9 +10,7 @@ export const IS_PRODUCTION = NODE_ENV === 'production';
 
 export const IS_TESTING = NODE_ENV === 'testing';
 
-export const APP_ENVS = ['development', 'staging', 'production', 'testing'].filter(
-  (item) => item === NODE_ENV,
-);
+export const APP_ENVS = ['.env', `.env.${NODE_ENV}`, '.env.local', `.env.${NODE_ENV}.local`];
 
 export const APP_MODE = NODE_ENV?.toUpperCase();
 

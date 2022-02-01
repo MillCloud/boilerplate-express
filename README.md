@@ -185,7 +185,7 @@ pnpm run dev
 
 使用 [dotenv](https://github.com/motdotla/dotenv) 和 [dotenv-expand](https://github.com/motdotla/dotenv-expand) 在应用内处理模式和环境变量。
 
-支持多个 `.env` 文件，优先级由小到大和相关说明如下。
+支持根目录下存在多个 `.env` 文件，优先级由低到高和相关说明如下。
 
 - `.env` - 通用环境变量
 - `.env.${process.env.NODE_ENV}` - `${process.env.NODE_ENV}` 专属环境变量
