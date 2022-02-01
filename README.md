@@ -139,6 +139,7 @@ pnpm run dev
 .
 ├── .github                     # github 配置目录
 ├── .husky                      # husky 配置目录
+├── logs                        # 日志目录，生产环境出现
 ├── src
 │   ├── constants               # 固定数据目录
 │   ├── controllers             # 控制器目录
@@ -146,7 +147,6 @@ pnpm run dev
 │   ├── models                  # mongoose model 目录
 │   ├── routes                  # 路由目录
 │   ├── schedules               # 定时任务目录
-│   ├── static                  # 静态文件目录
 │   ├── typings                 # 类型目录
 │   ├── utils                   # 工具方法目录
 │   ├── app.ts                  # express 实例
@@ -156,6 +156,7 @@ pnpm run dev
 │   ├── localhost-key.pem       # 创建 HTTPS 服务器所需
 │   ├── localhost.pem           # 创建 HTTPS 服务器所需
 │   └── server.ts               # 服务器实例
+│   ├── static                  # 静态文件目录
 ├── .commitlintrc.cjs           # commitlint 配置文件
 ├── .editorconfig
 ├── .eslintrc.cjs               # eslint 配置文件
