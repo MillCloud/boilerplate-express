@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 import pc from 'picocolors';
-import { DB_URI } from './constants';
-import { logger } from './utils';
+import { APP_DB_URI } from './constants';
+import { logger } from './middlewares/logger';
 
 mongoose
-  .connect(DB_URI)
+  .connect(APP_DB_URI)
   .then(() => {
-    logger.info(pc.cyan(`${DB_URI} is connected.`));
+    logger.info(pc.cyan(`${APP_DB_URI} is connected.`));
   })
   .catch((error) => {
     logger.error(error?.message ?? error);

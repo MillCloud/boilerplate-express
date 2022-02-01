@@ -1,7 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
 import { UserModel, AuthModel } from '@/models';
 import { scryptPassword, generateToken, formatDate } from '@/utils';
-import { JWT_EXPIRES_IN, USER_ROLE } from '@/constants';
+import { APP_JWT_EXPIRES_IN } from '@/constants';
+
+export const USER_ROLE = {
+  1: 'admin',
+  2: 'user',
+  admin: 1,
+  user: 2,
+};
 
 export const authController = {
   signIn: async (request: Request, response: Response, next: NextFunction) => {
@@ -20,7 +27,7 @@ export const authController = {
       }
       // update auth
       const token = auth.token || generateToken(userId);
-      const expiredAt = new Date(Date.now() + JWT_EXPIRES_IN);
+      const expiredAt = new Date(Date.now() + APP_JWT_EXPIRES_IN);
       await auth.updateOne({
         token,
         expiredAt,
@@ -102,7 +109,7 @@ export const authController = {
       // update auth
       const auth = (await AuthModel.findOne({ userId: user._id }))!;
       const { token } = auth;
-      const expiredAt = new Date(Date.now() + JWT_EXPIRES_IN);
+      const expiredAt = new Date(Date.now() + APP_JWT_EXPIRES_IN);
       await auth.updateOne({
         expiredAt,
       });

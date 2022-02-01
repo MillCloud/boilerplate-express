@@ -5,7 +5,7 @@ import pc from 'picocolors';
 import pkg from '../package.json';
 import { APP_MODE, APP_URL, APP_HTTPS, APP_PORT } from './constants';
 import { app } from './app';
-import { logger } from './utils';
+import { logger } from './middlewares/logger';
 
 const server = APP_HTTPS
   ? spdy.createServer(

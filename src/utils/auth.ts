@@ -3,7 +3,7 @@ import crypto from 'crypto';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import { isNumber, isArray, isFunction } from '@modyqyw/utils';
-import { JWT_SECRET } from '../constants/auth';
+import { APP_JWT_SECRET } from '../constants';
 
 export const scryptPassword = (
   password: string,
@@ -14,9 +14,9 @@ export const scryptPassword = (
 export const generateSalt = () => crypto.randomBytes(16).toString('hex');
 
 export const generateToken = (userId: mongoose.Types.ObjectId | string) =>
-  jwt.sign(userId.toString(), JWT_SECRET);
+  jwt.sign(userId.toString(), APP_JWT_SECRET);
 
-export const verifyToken = (token: string) => jwt.verify(token, JWT_SECRET);
+export const verifyToken = (token: string) => jwt.verify(token, APP_JWT_SECRET);
 
 export const getTokenFromRequest = (request: Request): string =>
   request.headers['x-access-token'] ??
