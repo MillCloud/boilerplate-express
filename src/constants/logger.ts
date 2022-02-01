@@ -27,7 +27,6 @@ export const LOGGER_FORMAT = format.combine(
     format((info) => {
       const id = tracer.id();
       if (id) {
-        // eslint-disable-next-line no-param-reassign
         info.requestId = id;
       }
       return info;

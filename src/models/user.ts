@@ -1,8 +1,8 @@
-/* eslint-disable no-param-reassign */
 import mongoose from 'mongoose';
 
 export const userSchema = new mongoose.Schema<IUser>({
   username: { type: String, required: true },
+  role: { type: Number, required: true },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -16,12 +16,11 @@ export const userSchema = new mongoose.Schema<IUser>({
 });
 
 userSchema.set('toJSON', {
-  transform: (document, value) => {
-    value.id = value._id.toString();
-    delete value._id;
-    delete value.__v;
+  transform: (document, result) => {
+    result.id = result._id.toString();
+    delete result._id;
+    delete result.__v;
   },
 });
 
 export const UserModel = mongoose.model('User', userSchema);
-/* eslint-enable no-param-reassign */
