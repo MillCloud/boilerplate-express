@@ -1,5 +1,5 @@
 export * from '@modyqyw/utils';
-export * from './crypto';
+export * from './auth';
 export * from './formatter';
 export * from './formidable';
 export * from './logger';
