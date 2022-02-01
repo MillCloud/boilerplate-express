@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { UserModel, AuthModel } from '@/models';
 import { scryptPassword, generateToken, formatDate } from '@/utils';
-import { JWT_EXPIRES_IN } from '@/constants';
+import { JWT_EXPIRES_IN, USER_ROLE } from '@/constants';
 
 export const authController = {
   signIn: async (request: Request, response: Response, next: NextFunction) => {
@@ -59,6 +59,7 @@ export const authController = {
       // create user
       const user = await UserModel.create({
         username,
+        role: USER_ROLE.user,
       });
       // create auth
       await AuthModel.create<IAuth>({
