@@ -1,6 +1,10 @@
 import { Router } from 'express';
-import { validate, bodyUsernameValidationChain, bodyPasswordValidationChain } from '@/utils';
-import { authMiddleware } from '@/middlewares';
+import {
+  authMiddleware,
+  validate,
+  bodyUsernameValidationChain,
+  bodyPasswordValidationChain,
+} from '@/middlewares';
 import { authController } from '@/controllers';
 
 export const base = '/auth';

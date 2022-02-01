@@ -20,6 +20,7 @@ export * from './parser';
 export * from './rate-limit';
 export * from './static';
 export * from './tracer';
+export * from './validator';
 
 export const useMiddlewares = (app: Express) => {
   app.use(requestLoggerMiddleware);
