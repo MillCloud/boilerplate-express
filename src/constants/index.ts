@@ -2,7 +2,17 @@ import pkg from '@/../package.json';
 
 export const NODE_ENV = process.env.NODE_ENV ?? 'development';
 
+export const IS_DEVELOPMENT = NODE_ENV === 'development';
+
+export const IS_STAGING = NODE_ENV === 'staging';
+
 export const IS_PRODUCTION = NODE_ENV === 'production';
+
+export const IS_TESTING = NODE_ENV === 'testing';
+
+export const APP_ENVS = ['development', 'staging', 'production', 'testing'].filter(
+  (item) => item === NODE_ENV,
+);
 
 export const APP_MODE = NODE_ENV?.toUpperCase();
 

@@ -181,9 +181,32 @@ pnpm run dev
 
 ### 模式和环境变量
 
-使用 [cross-env](https://github.com/kentcdodds/cross-env) 在命令行内处理。
+使用 [cross-env](https://github.com/kentcdodds/cross-env) 在命令行内处理模式和环境变量。
 
-使用 [dotenv](https://github.com/motdotla/dotenv) 和 [dotenv-expand](https://github.com/motdotla/dotenv-expand) 在应用内处理模式和环境变量，见 [env.ts](./src/env.ts)。
+使用 [dotenv](https://github.com/motdotla/dotenv) 和 [dotenv-expand](https://github.com/motdotla/dotenv-expand) 在应用内处理模式和环境变量。
+
+支持多个 `.env` 文件，优先级由小到大和相关说明如下。
+
+- `.env` - 通用环境变量
+- `.env.${process.env.NODE_ENV}` - `${process.env.NODE_ENV}` 专属环境变量
+- `.env.local` - 本地通用环境变量
+- `.env.${process.env.NODE_ENV}.local` - 本地 `${process.env.NODE_ENV}` 专属环境变量
+
+下面是一个 `.env` 内容示例。
+
+```sh
+APP_HOST=127.0.0.1
+APP_PORT=3000
+APP_API_ROUTER_PREFIX=/api
+
+APP_DB_HOST=127.0.0.1
+APP_DB_PORT=27017
+APP_DB_NAME=app
+
+APP_JWT_SECRET=secret
+APP_JWT_EXPIRES_IN=604800000
+
+```
 
 ### 数据库
 
