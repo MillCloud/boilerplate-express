@@ -13,6 +13,7 @@ export * from './auth';
 export * from './compression';
 export * from './cors';
 export * from './error';
+export * from './formidable';
 export * from './helmet';
 export * from './logger';
 export * from './parser';
