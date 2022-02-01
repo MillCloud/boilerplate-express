@@ -1,58 +1,44 @@
 import { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
 import { AuthModel, UserModel } from '../models';
-import { verifyToken } from '../utils';
+import {
+  getTokenFromRequest,
+  checkToken,
+  getUserIdFromToken,
+  checkAuth,
+  checkPermission,
+} from '../utils';
 
-export const authMiddleware = async (request: Request, response: Response, next: NextFunction) => {
-  const token: string =
-    request.headers['x-access-token'] ??
-    request.headers['x-token'] ??
-    request.headers['X-Access-Token'] ??
-    request.headers['X-Token'] ??
-    request.query.token ??
-    request.body.token ??
-    '';
-
-  if (!token) {
-    next({
-      status: 403,
-      message: 'Please sign in first.',
-    });
-    return;
-  }
-
-  try {
-    const userId = verifyToken(token) as string;
-    const auth = await AuthModel.findOne({ userId: new mongoose.Types.ObjectId(userId), token });
-    if (!auth) {
-      next({
-        status: 403,
-        message: 'Please sign in.',
-      });
+export const generateAuthMiddleware =
+  (param?: number | number[] | ((user: IUserDocument, next: NextFunction) => boolean)) =>
+  async (request: Request, response: Response, next: NextFunction) => {
+    const token = getTokenFromRequest(request);
+    if (!checkToken(token, next)) {
       return;
     }
-    if (Date.now() >= auth.expiredAt.getTime()) {
-      // expired
+    try {
+      const userId = getUserIdFromToken(token);
+      const auth = await AuthModel.findOne({ userId: new mongoose.Types.ObjectId(userId), token });
+      if (!checkAuth(auth, next)) {
+        return;
+      }
+      const user = await UserModel.findById(userId);
+      if (!checkPermission(user, next, param)) {
+        return;
+      }
+      request.body.user = user;
+      next();
+      return;
+    } catch (error) {
+      // https://github.com/auth0/node-jsonwebtoken#errors--codes
       next({
         status: 403,
-        message: 'Please sign in.',
+        message: `${
+          // @ts-ignore
+          error?.message ?? error ? `${error?.message ?? error}. ` : ''
+        }Please sign in.`,
       });
-      return;
     }
-    // not expired
-    const user = await UserModel.findById(userId);
-    // eslint-disable-next-line no-param-reassign
-    request.body.user = user;
-    next();
-    return;
-  } catch (error) {
-    // https://github.com/auth0/node-jsonwebtoken#errors--codes
-    next({
-      status: 403,
-      message: `${
-        // @ts-ignore
-        error?.message ?? error ? `${error?.message ?? error}. ` : ''
-      }Please sign in.`,
-    });
-  }
-};
+  };
+
+export const authMiddleware = generateAuthMiddleware();
