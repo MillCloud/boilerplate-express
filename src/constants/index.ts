@@ -44,8 +44,7 @@ export const APP_DB_NAME = process.env.DB_NAME ?? 'app';
 
 export const APP_DB_URI = `mongodb://${APP_DB_HOST}:${APP_DB_PORT}/${APP_DB_NAME}`;
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export const ISO8601_Format = undefined;
+export const ISO8601_FORMAT = undefined;
 
 export const DATE_FORMAT = 'YYYY-MM-DD';
 
