@@ -56,6 +56,16 @@ brew install git
 git config --global core.autocrlf false
 # 设置默认分支名为 main
 git config --global init.defaultBranch main
+# 安装 Xcode 命令行工具
+xcode-select --install
+# tap
+brew tap mongodb/brew
+# 安装 mongodb-community
+brew install mongodb-community
+# 启动服务
+brew services start mongodb-community
+# 重启服务
+brew services restart mongodb-community
 
 ```
 
@@ -79,10 +89,12 @@ export NVM_DIR="$HOME/.nvm"
 # 使用 Chocolatey
 choco install nvm
 choco install git
+choco install mongodb
 
 # 使用 Scoop
 scoop install nvm
 scoop install git
+scoop install mongodb
 
 # 不自动转换换行符
 git config --global core.autocrlf false
