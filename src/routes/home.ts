@@ -1,11 +1,5 @@
-import { Router } from 'express';
-import { homeController } from '@/controllers';
+import { homeController, homeRouterBase } from '@/controllers';
+import { generateRouter, getPath } from '@/utils';
 
-export const base = '/';
-const router = Router();
-
-router.get('/', homeController.get);
-
-router.post('/', homeController.post);
-
-export { router };
+export const homePath = getPath(homeRouterBase);
+export const homeRouter = generateRouter(homeController);

@@ -1,15 +1,26 @@
 import { Request, Response } from 'express';
 
-export const homeController = {
-  get: async (request: Request, response: Response) => {
-    response.json({
-      message: 'Hello Express! This is a GET response.',
-    });
-  },
+export const homeRouterBase = '/';
 
-  post: async (request: Request, response: Response) => {
-    response.json({
-      message: 'Hello Express! This is a POST response.',
-    });
+export const homeController: TController = [
+  {
+    path: '/',
+    methods: ['get'],
+    middlewares: [],
+    function: async (request: Request, response: Response) => {
+      response.json({
+        message: 'Hello Express! This is a GET response.',
+      });
+    },
   },
-};
+  {
+    path: '/',
+    methods: ['get'],
+    middlewares: [],
+    function: async (request: Request, response: Response) => {
+      response.json({
+        message: 'Hello Express! This is a POST response.',
+      });
+    },
+  },
+];
