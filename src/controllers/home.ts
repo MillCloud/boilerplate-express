@@ -2,8 +2,8 @@ import { Request, Response } from 'express';
 
 export const homeRouterBase = '/';
 
-export const homeController: TController = [
-  {
+export const homeController: IController = {
+  get: {
     path: '/',
     methods: ['get'],
     middlewares: [],
@@ -13,9 +13,10 @@ export const homeController: TController = [
       });
     },
   },
-  {
+
+  post: {
     path: '/',
-    methods: ['get'],
+    methods: ['post'],
     middlewares: [],
     function: async (request: Request, response: Response) => {
       response.json({
@@ -23,4 +24,4 @@ export const homeController: TController = [
       });
     },
   },
-];
+};

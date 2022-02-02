@@ -18,8 +18,8 @@ export const USER_ROLE = {
 
 export const authRouterBase = '/';
 
-export const authController: TController = [
-  {
+export const authController: IController = {
+  signIn: {
     path: '/sign-in',
     methods: ['post'],
     middlewares: [validate([bodyUsernameValidationChain, bodyPasswordValidationChain])],
@@ -62,7 +62,7 @@ export const authController: TController = [
     },
   },
 
-  {
+  signUp: {
     path: '/sign-up',
     methods: ['post'],
     middlewares: [validate([bodyUsernameValidationChain, bodyPasswordValidationChain])],
@@ -104,7 +104,7 @@ export const authController: TController = [
     },
   },
 
-  {
+  signOut: {
     path: '/sign-out',
     methods: ['post'],
     middlewares: [authMiddleware],
@@ -128,7 +128,7 @@ export const authController: TController = [
     },
   },
 
-  {
+  renew: {
     path: '/renew',
     methods: ['post'],
     middlewares: [authMiddleware],
@@ -159,4 +159,4 @@ export const authController: TController = [
       }
     },
   },
-];
+};
