@@ -9,9 +9,6 @@ describe('Home Controller', () => {
       getRoutePath(homeRouterBasePath, homeController.get.path),
     );
     expect(response.statusCode).toBe(200);
-    expect(response.body).toEqual({
-      message: 'Hello Express! This is a GET response.',
-    });
   });
 
   test('post', async () => {
@@ -19,8 +16,5 @@ describe('Home Controller', () => {
       getRoutePath(homeRouterBasePath, homeController.post.path),
     );
     expect(response.statusCode).toBe(200);
-    expect(response.body).toEqual({
-      message: 'Hello Express! This is a POST response.',
-    });
   });
 });
