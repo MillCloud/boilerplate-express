@@ -1,7 +1,5 @@
 # boilerplate-express
 
-<script src="https://cdn.tailwindcss.com"></script>
-
 **尚未完善，不要在生产环境中使用。**
 
 ## 简介
