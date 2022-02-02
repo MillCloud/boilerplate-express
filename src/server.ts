@@ -17,13 +17,13 @@ const server = APP_HTTPS
     )
   : app;
 
-server
-  .listen(APP_PORT, () => {
-    logger.info(pc.cyan(`${pkg.name}@${pkg.version} in ${APP_MODE} is listening at ${APP_URL}.`));
-  })
-  .on('error', (error) => {
-    logger.error(error?.message ?? error);
-    process.exit(1);
-  });
+server.listen(APP_PORT, () => {
+  logger.info(pc.cyan(`${pkg.name}@${pkg.version} in ${APP_MODE} is listening at ${APP_URL}.`));
+});
+
+server.on('error', (error) => {
+  logger.error(error?.message ?? error);
+  process.exit(1);
+});
 
 export { server };
