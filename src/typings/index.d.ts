@@ -1,6 +1,16 @@
 import mongoose from 'mongoose';
+import { RequestHandler } from 'express';
 
 declare global {
+  type TMethod = 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' | 'head';
+
+  type TController = {
+    path: string;
+    methods: TMethod[];
+    middlewares: RequestHandler[];
+    function: RequestHandler;
+  }[];
+
   type TDocument<T = any> = mongoose.Document<unknown, any, T> &
     T & {
       _id: mongoose.Types.ObjectId;
@@ -11,6 +21,8 @@ declare global {
     userId: mongoose.Types.ObjectId;
     password: string;
     expiredAt: Date;
+    createdAt?: Date;
+    updatedAt?: Date;
   }
 
   interface IAuthDocument extends TDocument<IAuth> {}
