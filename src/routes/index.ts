@@ -3,10 +3,19 @@ import { rateLimitMiddleware } from '@/middlewares';
 import { getRouterPath } from '@/utils';
 import { Express } from 'express';
 import { marked } from 'marked';
+import hljs from 'highlight.js';
 import fs from 'fs';
 import path from 'path';
 import { homePath, homeRouter } from './home';
 import { authPath, authRouter } from './auth';
+
+marked.setOptions({
+  highlight: (code, lang) => {
+    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+    return hljs.highlight(code, { language }).value;
+  },
+  langPrefix: 'hljs language-',
+});
 
 export default (app: Express) => {
   if (IS_PRODUCTION) {
@@ -25,7 +34,11 @@ export default (app: Express) => {
       : baseUrl.slice(index + 1);
     const filePath = path.resolve(process.cwd(), 'docs', `${fileName}.md`);
     if (fs.existsSync(filePath)) {
-      response.send(marked.parse(fs.readFileSync(filePath, { encoding: 'utf-8' })));
+      response.send(
+        `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.4.0/styles/github-dark.css">${marked.parse(
+          fs.readFileSync(filePath, { encoding: 'utf-8' }),
+        )}`,
+      );
     } else {
       next({ status: 404 });
     }
