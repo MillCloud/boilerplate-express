@@ -5,6 +5,16 @@ export const authSchema = new mongoose.Schema<IAuth>({
   userId: { type: mongoose.Types.ObjectId, required: true },
   password: { type: String, required: true },
   expiredAt: { type: Date, required: true },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    required: true,
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+    required: true,
+  },
 });
 
 export const AuthModel = mongoose.model<IAuth>('Auth', authSchema);
