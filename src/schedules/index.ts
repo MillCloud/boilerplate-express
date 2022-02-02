@@ -8,7 +8,7 @@ agenda.define(LOG_EVERY_MINUTE, async () => {
   console.log(`${new Date().toISOString()} ${LOG_EVERY_MINUTE} run.`);
 });
 
-(async () => {
-  await agenda.start();
-  await agenda.every('* * * * *', LOG_EVERY_MINUTE);
-})();
+// (async () => {
+//   await agenda.start();
+//   await agenda.every('* * * * *', LOG_EVERY_MINUTE);
+// })();
