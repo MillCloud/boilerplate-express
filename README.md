@@ -233,7 +233,7 @@ APP_JWT_EXPIRES_IN=604800000
 - [logger](./src/middlewares/logger.ts) - 基于 [winston](https://github.com/winstonjs/winston) 的日志中间件
 - [parser](./src/middlewares/parser.ts) - 基于 [body-parser](https://github.com/expressjs/body-parser) 的 `body` 解析中间件
 - [rate-limit](./src/middlewares/rate-limit.ts) - 基于 [express-rate-limit](https://github.com/nfriedly/express-rate-limit) 的频率限制中间件
-- [static](./src/middlewares/static.ts) - 基于 [express-static-gzip](https://github.com/tkoenig89/express-static-gzip) 的静态文件中间件
+- [static](./src/middlewares/static.ts) - 基于 [serve-static](https://github.com/expressjs/serve-static) 的静态文件中间件
 - [tracer](./src/middlewares/tracer.ts) - 基于 [cls-rtracer](https://github.com/puzpuzpuz/cls-rtracer) 的请求 ID 中间件
 - [validator](./src/middlewares/validator.ts) - 基于 [express-validator](https://express-validator.github.io/) 的请求校验中间件
 
@@ -276,9 +276,7 @@ APP_JWT_EXPIRES_IN=604800000
 
 ## 文档
 
-WIP
-
-- [swagger](https://swagger.io/)
+当前设计很难基于 [swagger](https://swagger.io/) 做文档自动生成，建议手写 markdown 文件作为文档。
 
 ### 测试
 
