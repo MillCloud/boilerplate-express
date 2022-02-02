@@ -63,8 +63,8 @@
     "winston-daily-rotate-file": "~4.6.0"
   },
   "devDependencies": {
-    "@babel/core": "~7.16.12",
-    "@babel/eslint-parser": "~7.16.5",
+    "@babel/core": "~7.17.0",
+    "@babel/eslint-parser": "~7.17.0",
     "@commitlint/cli": "~16.1.0",
     "@modyqyw/fabric": "~4.10.5",
     "@types/body-parser": "~1.19.2",
