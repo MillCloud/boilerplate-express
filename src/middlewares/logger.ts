@@ -2,13 +2,14 @@ import expressWinston from 'express-winston';
 import winston from 'winston';
 import WinstonDailyRotateFile from 'winston-daily-rotate-file';
 import path from 'path';
-import { APP_LOGGER_LEVEL, IS_PRODUCTION } from '../constants';
+import { APP_LOGGER_LEVEL, IS_PRODUCTION, IS_TEST } from '../constants';
 import { tracer } from './tracer';
 
 const { transports, format } = winston;
 
 export const logger = winston.createLogger({
   level: APP_LOGGER_LEVEL,
+  silent: IS_TEST,
   transports: IS_PRODUCTION
     ? [
         new WinstonDailyRotateFile({
