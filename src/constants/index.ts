@@ -8,7 +8,7 @@ export const IS_STAGING = NODE_ENV === 'staging';
 
 export const IS_PRODUCTION = NODE_ENV === 'production';
 
-export const IS_TESTING = NODE_ENV === 'testing';
+export const IS_TEST = NODE_ENV === 'test';
 
 export const APP_ENVS = ['.env', `.env.${NODE_ENV}`, '.env.local', `.env.${NODE_ENV}.local`];
 
