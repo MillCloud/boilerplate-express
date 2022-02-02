@@ -1,4 +1,4 @@
-import { APP_API_ROUTER_PREFIX } from '@/constants';
+import { APP_API_ROUTER_PREFIX, IS_PRODUCTION } from '@/constants';
 import { rateLimitMiddleware } from '@/middlewares';
 import { getPath } from '@/utils';
 import { Express } from 'express';
@@ -6,7 +6,9 @@ import { authPath, authRouter } from './auth';
 import { homePath, homeRouter } from './home';
 
 export default (app: Express) => {
-  app.use(APP_API_ROUTER_PREFIX, rateLimitMiddleware);
+  if (IS_PRODUCTION) {
+    app.use(APP_API_ROUTER_PREFIX, rateLimitMiddleware);
+  }
   app.use(authPath, authRouter);
   app.use(homePath, homeRouter);
   app.use('*', (request, response, next) => {
