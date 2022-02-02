@@ -33,7 +33,7 @@ export const authController: IController = {
         if (!user || !userId || !auth || scryptPassword(password, user._id) !== auth.password) {
           next({
             status: 401,
-            message: `Access Denied. Wrong username ${username} or password.`,
+            message: `Wrong username ${username} or password.`,
           });
           return;
         }
@@ -56,7 +56,7 @@ export const authController: IController = {
         return;
       } catch (error: any) {
         next({
-          message: error?.message ?? error,
+          message: `/auth/sign-in ${error?.message ?? error}`,
         });
       }
     },
@@ -94,7 +94,7 @@ export const authController: IController = {
           expiredAt: new Date(),
         });
         // response
-        response.json({ message: 'OK.' });
+        response.status(201).json();
         return;
       } catch (error: any) {
         next({
@@ -122,7 +122,7 @@ export const authController: IController = {
         return;
       } catch (error: any) {
         next({
-          message: `/auth/sign-up ${error?.message ?? error}`,
+          message: `/auth/sign-out ${error?.message ?? error}`,
         });
       }
     },
@@ -154,7 +154,7 @@ export const authController: IController = {
         return;
       } catch (error: any) {
         next({
-          message: `/auth/sign-up ${error?.message ?? error}`,
+          message: `/auth/renew ${error?.message ?? error}`,
         });
       }
     },
