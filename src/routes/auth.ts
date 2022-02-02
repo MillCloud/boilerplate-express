@@ -1,5 +1,5 @@
-import { authController, authRouterBase } from '@/controllers';
-import { generateRouter, getPath } from '@/utils';
+import { authController, authRouterBasePath } from '@/controllers';
+import { getRouterFromController, getRouterPath } from '@/utils';
 
-export const authPath = getPath(authRouterBase);
-export const authRouter = generateRouter(authController);
+export const authPath = getRouterPath(authRouterBasePath);
+export const authRouter = getRouterFromController(authController);

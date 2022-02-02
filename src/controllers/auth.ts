@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { UserModel, AuthModel } from '@/models';
-import { scryptPassword, generateToken, formatDate } from '@/utils';
+import { scryptPassword, getTokenFromUserId, formatDate } from '@/utils';
 import { APP_JWT_EXPIRES_IN } from '@/constants';
 import {
   authMiddleware,
@@ -16,7 +16,7 @@ export const USER_ROLE = {
   user: 2,
 };
 
-export const authRouterBase = '/';
+export const authRouterBasePath = '/';
 
 export const authController: IController = {
   signIn: {
@@ -38,7 +38,7 @@ export const authController: IController = {
           return;
         }
         // update auth
-        const token = auth.token || generateToken(userId);
+        const token = auth.token || getTokenFromUserId(userId);
         const expiredAt = new Date(Date.now() + APP_JWT_EXPIRES_IN);
         await auth.updateOne({
           token,

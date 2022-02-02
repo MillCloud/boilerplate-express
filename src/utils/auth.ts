@@ -11,9 +11,7 @@ export const scryptPassword = (
   keylen = 64,
 ) => crypto.scryptSync(password, salt.toString(), keylen).toString('hex');
 
-export const generateSalt = () => crypto.randomBytes(16).toString('hex');
-
-export const generateToken = (userId: mongoose.Types.ObjectId | string) =>
+export const getTokenFromUserId = (userId: mongoose.Types.ObjectId | string) =>
   jwt.sign(userId.toString(), APP_JWT_SECRET);
 
 export const verifyToken = (token: string) => jwt.verify(token, APP_JWT_SECRET);

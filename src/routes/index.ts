@@ -1,6 +1,6 @@
 import { APP_API_ROUTER_PREFIX, IS_PRODUCTION } from '@/constants';
 import { rateLimitMiddleware } from '@/middlewares';
-import { getPath } from '@/utils';
+import { getRouterPath } from '@/utils';
 import { Express } from 'express';
 import { authPath, authRouter } from './auth';
 import { homePath, homeRouter } from './home';
@@ -16,7 +16,7 @@ export default (app: Express) => {
       status: 404,
       message: `No matching routes for ${request.method} ${request.originalUrl}. Do you mean ${
         request.method
-      } ${getPath(request.originalUrl)}?`,
+      } ${getRouterPath(request.originalUrl)}?`,
     });
   });
 };

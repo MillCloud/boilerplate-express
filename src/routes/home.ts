@@ -1,5 +1,5 @@
-import { homeController, homeRouterBase } from '@/controllers';
-import { generateRouter, getPath } from '@/utils';
+import { homeController, homeRouterBasePath } from '@/controllers';
+import { getRouterFromController, getRouterPath } from '@/utils';
 
-export const homePath = getPath(homeRouterBase);
-export const homeRouter = generateRouter(homeController);
+export const homePath = getRouterPath(homeRouterBasePath);
+export const homeRouter = getRouterFromController(homeController);

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-export const homeRouterBase = '/';
+export const homeRouterBasePath = '/';
 
 export const homeController: IController = {
   get: {

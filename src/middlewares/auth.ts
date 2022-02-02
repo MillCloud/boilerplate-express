@@ -10,7 +10,7 @@ import {
   checkPermission,
 } from '../utils';
 
-export const generateAuthMiddleware =
+export const getAuthMiddleware =
   (param?: number | number[] | ((user: IUserDocument) => boolean)) =>
   async (request: Request, response: Response, next: NextFunction) => {
     const token = getTokenFromRequest(request);
@@ -53,4 +53,4 @@ export const generateAuthMiddleware =
     }
   };
 
-export const authMiddleware = generateAuthMiddleware();
+export const authMiddleware = getAuthMiddleware();
