@@ -250,7 +250,7 @@ APP_JWT_EXPIRES_IN=604800000
 
 从请求到响应的全流程来说，应该是先匹配成功路由，然后通过一系列中间件的校验，最后交给控制器的方法处理请求。
 
-但在实际开发中，如果过度分离了路由和控制器的代码，往往需要开发者在不同文件间来回横跳，开发者体验较差。
+但在实际开发中，如果过度分离了路由和控制器的代码，往往需要开发者在不同文件间来回横跳，同时也不利于测试，开发者体验较差。
 
 因此，项目的路由直接根据控制器信息生成，内置有两个路由 [@/src/routes/auth.ts](./src/routes/auth.ts) 和 [@/src/routes/home.ts](./src/routes/home.ts)。
 
@@ -262,7 +262,7 @@ APP_JWT_EXPIRES_IN=604800000
 
 项目内置了两个控制器 [authController](./src/controllers/auth.ts) 和 [homeController](./src/controllers/home.ts)，分别对应内置的两个路由。
 
-控制器只是一个遵循 [约定格式](./src/typings/index.d.ts#L7-12) 的数组。
+控制器只是一个遵循 [约定格式](./src/typings/index.d.ts#L7-12) 的对象。
 
 ### 定时任务
 
