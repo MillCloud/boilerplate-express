@@ -4,12 +4,14 @@ import { RequestHandler } from 'express';
 declare global {
   type TMethod = 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' | 'head';
 
-  type TController = {
-    path: string;
-    methods: TMethod[];
-    middlewares: RequestHandler[];
-    function: RequestHandler;
-  }[];
+  interface IController {
+    [key: string]: {
+      path: string;
+      methods: TMethod[];
+      middlewares: RequestHandler[];
+      function: RequestHandler;
+    };
+  }
 
   type TDocument<T = any> = mongoose.Document<unknown, any, T> &
     T & {
