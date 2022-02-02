@@ -256,17 +256,17 @@ APP_JWT_EXPIRES_IN=604800000
 
 项目也配置了 404 处理，见 [@/routes/index.ts](./src/routes/index.ts)。
 
-考虑未来实现约定式路由。
-
 ### 控制器
-
-项目内置了两个控制器 [authController](./src/controllers/auth.ts) 和 [homeController](./src/controllers/home.ts)，分别对应内置的两个路由。
 
 控制器只是一个遵循 [约定格式](./src/typings/index.d.ts#L7-12) 的对象。
 
+项目内置了两个控制器 [authController](./src/controllers/auth.ts) 和 [homeController](./src/controllers/home.ts)，分别对应内置的两个路由。
+
 ### 定时任务
 
-定时任务基于 [agenda](https://github.com/agenda/agenda)，和 `mongodb` 匹配使用。
+定时任务基于 [agenda](https://github.com/agenda/agenda)，需要和 `mongodb` 匹配使用。
+
+如果你想要更换数据库，不妨看看其它一些相关库，比如 [bullmq](https://docs.bullmq.io/)、[bull](https://github.com/OptimalBits/bull)、[bree](https://jobscheduler.net/)。
 
 当前有一个每分钟运行的定时任务，见 [@/schedules/index.ts](./src/schedules/index.ts)。
 
@@ -282,12 +282,13 @@ WIP
 
 ### 测试
 
-WIP
+测试基于 [jest](https://jestjs.io/) 和 [supertest](https://github.com/visionmedia/supertest)。
 
-- [jest](https://jestjs.io/)
-- [supertest](https://github.com/visionmedia/supertest)
+项目内置了已有的路由和控制器的测试，可以在 `__tests__` 文件夹内查看。
 
 ### 部署
+
+项目使用 [release-it](https://github.com/release-it/release-it) 更新版本号并完成后续部署工作。
 
 WIP
 
