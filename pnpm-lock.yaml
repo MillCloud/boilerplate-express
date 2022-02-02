@@ -44,6 +44,7 @@ specifiers:
   express-winston: ~4.2.0
   formidable: ~2.0.1
   helmet: ~5.0.2
+  highlight.js: ~11.4.0
   husky: ~7.0.4
   is-ci: ~3.0.1
   jest: ~27.4.7
@@ -93,6 +94,7 @@ dependencies:
   express-winston: 4.2.0_winston@3.5.1
   formidable: 2.0.1
   helmet: 5.0.2
+  highlight.js: 11.4.0
   jsonwebtoken: 8.5.1
   marked: 4.0.12
   mime-types: 2.1.34
@@ -5230,6 +5232,11 @@ packages:
   /hexoid/1.0.0:
     resolution: {integrity: sha512-QFLV0taWQOZtvIRIAdBChesmogZrtuXvVWsFHZTk2SU+anspqZ2vMnoLg7IE1+Uk16N19APic1BuF8bC8c2m5g==}
     engines: {node: '>=8'}
+
+  /highlight.js/11.4.0:
+    resolution: {integrity: sha512-nawlpCBCSASs7EdvZOYOYVkJpGmAOKMYZgZtUqSRqodZE0GRVcFKwo1RcpeOemqh9hyttTdd5wDBwHkuSyUfnA==}
+    engines: {node: '>=12.0.0'}
+    dev: false
 
   /homedir-polyfill/1.0.3:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}

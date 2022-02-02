@@ -46,6 +46,7 @@
     "express-winston": "~4.2.0",
     "formidable": "~2.0.1",
     "helmet": "~5.0.2",
+    "highlight.js": "~11.4.0",
     "jsonwebtoken": "~8.5.1",
     "marked": "~4.0.12",
     "mime-types": "~2.1.34",
