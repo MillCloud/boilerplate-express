@@ -5,10 +5,10 @@ import { Router } from 'express';
 
 export const normalizeRoutePath = (path: string) => path.replace(/\/+/g, '/');
 
-export const getRouterPath = (routerBasePath: string) =>
+export const getRouterPath = (routerBasePath = '') =>
   normalizeRoutePath(`/${APP_API_ROUTER_PREFIX}/${APP_API_ROUTER_VERSION}/${routerBasePath}`);
 
-export const getRoutePath = (routerBasePath: string, routeBasePath: string) =>
+export const getRoutePath = (routerBasePath = '', routeBasePath: string = '') =>
   normalizeRoutePath(
     `/${APP_API_ROUTER_PREFIX}/${APP_API_ROUTER_VERSION}/${routerBasePath}/${routeBasePath}`,
   );
