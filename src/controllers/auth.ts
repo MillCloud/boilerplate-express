@@ -33,7 +33,7 @@ export const authController: IController = {
         if (!user || !userId || !auth || scryptPassword(password, user._id) !== auth.password) {
           next({
             status: 401,
-            message: `Wrong username ${username} or password.`,
+            message: `Access Denied. Wrong username ${username} or password.`,
           });
           return;
         }
