@@ -23,8 +23,6 @@
 
 请先阅读上面的文档，并确保对 `node` 和 `npm` 有 [基本了解](http://nodejs.cn/learn)。
 
-仍在开发中的功能关联的依赖有 [jest](https://jestjs.io/)、[supertest](https://github.com/visionmedia/supertest)、
-
 ## 起步
 
 这部分说明将让你得到能在本地运行的项目副本以开始开发。有关如何部署项目，请阅读 [部署部分](#部署)。
@@ -250,15 +248,21 @@ APP_JWT_EXPIRES_IN=604800000
 
 ### 路由
 
-项目内置了两个基本路由 [authRouter](./src/routes/auth.ts) 和 [homeRouter](./src/controllers/home.ts)，在 `auth` 路由里还有校验示例。
+从请求到响应的全流程来说，应该是先匹配成功路由，然后通过一系列中间件的校验，最后交给控制器的方法处理请求。
 
-项目还配置了 404 处理，见 [@/routes/index.ts](./src/routes/index.ts)。
+但在实际开发中，如果过度分离了路由和控制器的代码，往往需要开发者在不同文件间来回横跳，开发者体验较差。
+
+因此，项目的路由直接根据控制器信息生成，内置有两个路由 [@/src/routes/auth.ts](./src/routes/auth.ts) 和 [@/src/routes/home.ts](./src/routes/home.ts)。
+
+项目也配置了 404 处理，见 [@/routes/index.ts](./src/routes/index.ts)。
+
+考虑未来实现约定式路由。
 
 ### 控制器
 
-路由匹配成功后，先通过校验，最后传递给控制器里的方法处理。
+项目内置了两个控制器 [authController](./src/controllers/auth.ts) 和 [homeController](./src/controllers/home.ts)，分别对应内置的两个路由。
 
-项目内置了两个基本控制器 [authController](./src/controllers/auth.ts) 和 [homeController](./src/controllers/home.ts)。没有黑魔法，控制器只是包含了函数的对象。
+控制器只是一个遵循 [约定格式](./src/typings/index.d.ts#L7-12) 的数组。
 
 ### 定时任务
 
@@ -268,7 +272,7 @@ APP_JWT_EXPIRES_IN=604800000
 
 ### 请求
 
-[请求](./src/utils/request.ts) 基于 [got](https://github.com/sindresorhus/got)，添加了超时设置。
+[请求](./src/utils/request.ts) 基于 [axios](https://axios-http.com/)，添加了超时和重试设置。
 
 ## 文档
 
