@@ -178,6 +178,12 @@ pnpm run dev
 
 你可以参考 [插件](https://modyqyw.top/environment/#%E6%8F%92%E4%BB%B6) 和 [settings.json](https://modyqyw.top/environment/#settings-json)。
 
+### 开发热重载
+
+[nodemon](https://github.com/remy/nodemon) 提供了开发阶段的热重载支持，默认监听 `src` 文件夹、模式和环境变量相关文件。
+
+底层使用了基于 [esbuild] 的 [esmo](https://github.com/antfu/esno)。
+
 ### 模式和环境变量
 
 使用 [cross-env](https://github.com/kentcdodds/cross-env) 在命令行内处理模式和环境变量。
@@ -244,7 +250,7 @@ APP_JWT_EXPIRES_IN=604800000
 
 和中间件相关的变量往往也会在中间件文件内导出。如果符合固定数据规则，则在固定数据内导出，比如 `APP_LOGGER_LEVEL`。
 
-所有中间件的处理见 [app.ts](./src/app.ts)。
+全局级别的中间件应用见 [@/app.ts](./src/app.ts)，路由级别的中间件应用见 [@/routes/index.ts](./src/routes/index.ts)。
 
 ### 路由
 
@@ -274,13 +280,19 @@ APP_JWT_EXPIRES_IN=604800000
 
 [请求](./src/utils/request.ts) 基于 [axios](https://axios-http.com/)，添加了超时和重试设置。
 
+[got](https://github.com/sindresorhus/got) 应该是更好的选择，但配套（`ts`、`jest`）仍需一段时间才能完全支持 v12。未来考虑加入。
+
 ## 文档
 
-当前设计很难基于 [swagger](https://swagger.io/) 做文档自动生成，建议手写 markdown 文件作为文档。
+当前设计很难基于 [swagger](https://swagger.io/) 或类似的工具自动生成文档，建议在 `docs` 文件夹内手写 markdown 文档。
 
 ### 测试
 
-测试基于 [jest](https://jestjs.io/) 和 [supertest](https://github.com/visionmedia/supertest)。
+测试基于 [supertest](https://github.com/visionmedia/supertest)，[jest](https://jestjs.io/)，[ts-jest](https://kulshekhar.github.io/ts-jest/) 和 [jest-esbuild](https://github.com/hannoeru/jest-esbuild)。
+
+`ts-jest` 提供了 `ts` 支持。只使用 `ts-jest`，现有的 16 个测试需要跑 10 秒左右。
+
+`jest-esbuild` 提供了 `esbuild` 支持，使用后测试时间缩短到 4.5 秒左右。
 
 项目内置了已有的路由和控制器的测试，可以在 `__tests__` 文件夹内查看。
 
