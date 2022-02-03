@@ -8,4 +8,7 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
+  transform: {
+    '^.+\\.(c|m)?(j|t)sx?$': 'jest-esbuild',
+  },
 };
