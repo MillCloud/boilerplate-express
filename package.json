@@ -8,24 +8,19 @@
   "scripts": {
     "commit": "git-cz",
     "dev": "pnpm run dev:nodemon",
-    "dev:nodemon": "nodemon ./src/index.ts --watch ./src",
-    "dev:nodemon:https": "cross-env HTTPS=true nodemon ./src/index.ts --watch ./src",
+    "dev:nodemon": "nodemon ./src/index.ts",
+    "dev:nodemon:https": "cross-env HTTPS=true nodemon ./src/index.ts",
     "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && tsc",
     "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
-    "prod": "cross-env NODE_ENV=production nodemon ./src/index.ts --watch ./src",
-    "prod:https": "cross-env NODE_ENV=production HTTPS=true nodemon ./src/index.ts --watch ./src",
+    "prod": "cross-env NODE_ENV=production nodemon ./src/index.ts",
+    "prod:https": "cross-env NODE_ENV=production HTTPS=true nodemon ./src/index.ts",
     "test": "cross-env NODE_ENV=test jest"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/@commitlint/cz-commitlint"
-    }
-  },
-  "nodemonConfig": {
-    "execMap": {
-      "ts": "esmo --experimental-specifier-resolution=node"
     }
   },
   "dependencies": {
