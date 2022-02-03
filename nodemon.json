@@ -1,0 +1,17 @@
+{
+  "ext": "js,cjs,mjs,ts,cts,mts,json",
+  "execMap": {
+    "ts": "esmo --experimental-specifier-resolution=node"
+  },
+  "watch": [
+    "./src",
+    ".env",
+    ".env.local",
+    ".env.development",
+    ".env.development.local",
+    ".env.staging",
+    ".env.staging.local",
+    ".env.production",
+    ".env.production.local"
+  ]
+}
