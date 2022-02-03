@@ -25,7 +25,6 @@ export default (app: Express) => {
   app.use(authPath, authRouter);
   app.use(homePath, homeRouter);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   app.use(getRouterPath('/api-docs'), (request, response, next) => {
     const baseUrl = request.baseUrl.toLowerCase();
     const index = baseUrl.lastIndexOf('/');
