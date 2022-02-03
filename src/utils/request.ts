@@ -9,3 +9,5 @@ const instance = axios.create({
 axiosRetry(instance, { retries: 3, retryDelay: axiosRetry.exponentialDelay });
 
 export { instance as request };
+
+export { default as axios } from 'axios';
