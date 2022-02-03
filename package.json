@@ -8,9 +8,8 @@
   "scripts": {
     "commit": "git-cz",
     "dev": "pnpm run dev:nodemon",
-    "dev:https": "cross-env HTTPS=true nodemon ./src/index.ts --watch ./src",
     "dev:nodemon": "nodemon ./src/index.ts --watch ./src",
-    "dev:vite": "vite dev --host",
+    "dev:nodemon:https": "cross-env HTTPS=true nodemon ./src/index.ts --watch ./src",
     "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && tsc",
     "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
@@ -91,6 +90,7 @@
     "husky": "~7.0.4",
     "is-ci": "~3.0.1",
     "jest": "~27.4.7",
+    "jest-esbuild": "~0.2.6",
     "lint-staged": "~12.3.2",
     "markdownlint-cli": "~0.30.0",
     "nodemon": "~2.0.15",
@@ -100,9 +100,6 @@
     "supertest": "~6.2.2",
     "ts-jest": "~27.1.3",
     "type-fest": "~2.11.1",
-    "typescript": "~4.5.5",
-    "vite": "~2.7.13",
-    "vite-plugin-node": "~0.0.15",
-    "vitest": "~0.2.5"
+    "typescript": "~4.5.5"
   }
 }
