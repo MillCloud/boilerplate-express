@@ -86,7 +86,7 @@
     "jest": "~27.4.7",
     "jest-esbuild": "~0.2.6",
     "lint-staged": "~12.3.3",
-    "markdownlint-cli": "~0.30.0",
+    "markdownlint-cli": "~0.31.0",
     "nodemon": "~2.0.15",
     "pm2": "~5.1.2",
     "prettier": "~2.5.1",
