@@ -2,13 +2,14 @@
   "extends": "./node_modules/@modyqyw/fabric/tsconfig.base.json",
   "compilerOptions": {
     "noUnusedParameters": false,
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "lib": ["ESNext"],
+    "target": "ESNext",
     "jsx": "preserve",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["@types/express-serve-static-core", "@types/jest", "@types/qs", "type-fest"],
-    "target": "ESNext"
+    "types": ["@types/express-serve-static-core", "@types/jest", "@types/qs", "type-fest"]
   },
   "include": [
     "./**/.*.js",
