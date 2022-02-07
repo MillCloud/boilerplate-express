@@ -4,7 +4,7 @@ specifiers:
   '@babel/core': ~7.17.0
   '@babel/eslint-parser': ~7.17.0
   '@commitlint/cli': ~16.1.0
-  '@modyqyw/fabric': ~4.11.0
+  '@modyqyw/fabric': ~4.11.2
   '@modyqyw/utils': ~2.1.2
   '@types/body-parser': ~1.19.2
   '@types/compression': ~1.7.2
@@ -109,7 +109,7 @@ devDependencies:
   '@babel/core': 7.17.0
   '@babel/eslint-parser': 7.17.0_@babel+core@7.17.0+eslint@8.8.0
   '@commitlint/cli': 16.1.0
-  '@modyqyw/fabric': 4.11.0_c42ea4578b53e0288be6900146c0e71c
+  '@modyqyw/fabric': 4.11.2_c42ea4578b53e0288be6900146c0e71c
   '@types/body-parser': 1.19.2
   '@types/compression': 1.7.2
   '@types/content-disposition': 0.5.4
@@ -994,8 +994,8 @@ packages:
       sourcemap-codec: 1.4.8
     dev: true
 
-  /@modyqyw/fabric/4.11.0_c42ea4578b53e0288be6900146c0e71c:
-    resolution: {integrity: sha512-14D7nRpOT1yp0IgR3StTH+l2jzdHIEDojLF1FfhBlLa6LFF8q5sjtzYxEgMyHHqihBkpxoKJLOtZ1wacseeZmg==}
+  /@modyqyw/fabric/4.11.2_c42ea4578b53e0288be6900146c0e71c:
+    resolution: {integrity: sha512-Mcrj8UodfBp04hII22HHsxuxLnKEX9ZDFwHN++atezCJuE1WvEwQ03MA4wde7RZu1bENWqJmS541bmpC0uGDlA==}
     engines: {node: ^12.22.6 || ^14.17.6 || ^16.8.0}
     hasBin: true
     dependencies:
