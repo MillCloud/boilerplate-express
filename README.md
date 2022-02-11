@@ -1,12 +1,12 @@
 # boilerplate-express
 
-**尚未完善，不要在生产环境中使用。**
+**已废弃，未来将会基于 midwayjs 做模板。**
 
 ## 简介
 
 `boilerplate-express` 是一个面向中国用户的简单 `express` 模板，目标是帮助你快速开发中小型项目后端。当然，也希望能引导你更进一步地了解 `node` 后端生态。
 
-如果想要快速开发大型项目后端，请考虑使用 [boilerplate-nest](https://github.com/MillCloud/boilerplate-nest)。
+~~如果想要快速开发大型项目后端，请考虑使用 [boilerplate-nest](https://github.com/MillCloud/boilerplate-nest)。~~
 
 ### 主要依赖
 
