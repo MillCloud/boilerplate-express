@@ -300,6 +300,11 @@ APP_JWT_EXPIRES_IN=604800000
 
 项目使用 [release-it](https://github.com/release-it/release-it) 更新版本号并完成后续部署工作。
 
+- [管理设计篇之“部署升级策略”](https://time.geekbang.org/column/article/bff32998624230a675980b9b4f2a3c84/share)
+- [Production best practices: performance and reliability](https://expressjs.com/en/advanced/best-practice-performance.html)
+- [Express 部署最佳实践-安全篇](https://cnodejs.org/topic/584e5ee74c17b38d354365c2)
+- [使用 pm2 实现自动化的多服务器部署--express application](https://cnodejs.org/topic/584e5ee74c17b38d354365c2)
+
 WIP
 
 - [release-it](https://github.com/release-it/release-it)
